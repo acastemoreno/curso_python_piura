@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<!-- 2019-09-18 mié 18:44 -->
+<meta  charset="utf-8" />
+<meta  htto-equiv="X-UA-Compatible" content="chrome=1" />
+<meta  name="generator" content="Org-mode with org-ioslide" />
+<meta  name="author" content="Albert Castellano Moreno" />
+
+
+<!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
+<!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--This one seems to work all the time, but really small on ipad-->
+<!--<meta name="viewport" content="initial-scale=0.4">-->
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<link rel="stylesheet" media="all" href="theme/css/default.css" />
+<link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css" />
+<link rel="stylesheet" media="all" href="theme/css/small-icon.css" />
+<base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+<script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
+
+   <script src="js/jquery-1.7.1.min.js" type="text/javascript"></script>
+
+<script src="js/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML,local/local" type="text/javascript"></script>
+</head>
+<body style="opacity: 0">
+<slides class="layout-widescreen">
+<slide class="title-slide segue nobackground">
+       <aside class="gdbar"><img src="images/python-logo.png"></aside>
+       <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
+       <hgroup class="auto-fadein">
+         <h1 data-config-title><!-- populated from slide_config.json --></h1>
+         <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
+         <p data-config-presenter><!-- populated from slide_config.json --></p>
+       </hgroup>
+    </slide>
+  
+<slide id="sec-"  >
+<hgroup class="">
+       <h2 class=" "><div id="outline-container-org66849d6" class="outline-2">
+<h2 id="org66849d6">Contenido</h2>
+</div>
+</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-">
+<ul>
+<li>Funciones y Programación estructurada</li>
+<li>Módulos, paquetes y distribucion de software</li>
+<li>Programación orientada a objetos.</li>
+<li>Jupyter Notebook y Google Colaboratory.</li>
+<li>Manipulación de listas</li>
+<li>Diccionarios</li>
+<li>Expresiones regulares</li>
+<li>Python 2 vs 3</li>
+<li>Archivos</li>
+<li>Cadenas, listas y diccionarios</li>
+</ul>
+
+
+</article>
+
+</slide>
+
+</slide>
+<slide id="sec-" class=" segue dark quote nobackground" style="background-image: url(nil)">
+<aside class="gdbar right bottom"><img src="images/python-logo.png"></aside><hgroup class="">
+       <h2 class=" "><div id="outline-container-orga7c5d37" class="outline-2">
+<h2 id="orga7c5d37">Funciones y Programación estructurada</h2>
+</div>
+</h2>
+       <h3></h3>
+       </hgroup>
+<article class="flexbox vleft auto-fadein" id="text-">
+
+
+</article>
+
+</slide>
+<slide id="sec-"  >
+<hgroup class="">
+       <h2 class=" "><div id="outline-container-org5490119" class="outline-3">
+<h3 id="org5490119">Programación estructurada</h3>
+</div>
+</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-">
+<p>
+Se basa en el uso de <code>funciones</code>, <code>subrutinas</code> y las siguientes tres estructuras de control:
+</p>
+<ul>
+<li><b>Secuencia</b>: ejecución de una sentencia tras otra.</li>
+<li><b>Selección o condicional</b>: ejecución de una sentencia o conjunto de sentencias, según el valor de una variable booleana.</li>
+<li><b>Iteración (ciclo o bucle)</b>: ejecución de una sentencia o conjunto de sentencias, mientras una variable booleana sea verdadera.</li>
+</ul>
+
+
+</article>
+
+</slide>
+
+</slide>
+<slide id="sec-"  >
+<hgroup class="">
+       <h2 class=" "><div id="outline-container-org62f92da" class="outline-3">
+<h3 id="org62f92da">Funciones</h3>
+</div>
+</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-">
+<p>
+Una función es un bloque de código con un nombre asociado, que recibe cero o más argumentos como entrada, sigue una secuencia de sentencias y devuelve un valor.
+</p>
+
+<article class="flexbox vcenter">
+
+<div class="figure">
+<p><img src="images/funcion.png" alt="funcion.png" width="250px" />
+</p>
+</div>
+</article>
+
+
+</article>
+
+</slide>
+
+</slide>
+<slide id="sec-"  >
+<hgroup class="">
+       <h2 class=" "><div id="outline-container-org038f1ae" class="outline-3">
+<h3 id="org038f1ae">Utilidad</h3>
+</div>
+</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-">
+<ul>
+<li><b>Modularización</b>: permite segmentar un programa complejo en una serie de partes o módulos más simples, facilitando así la programación y el depurado.</li>
+<li><b>Reutilización</b>: permite reutilizar una misma función en distintos lugares.</li>
+</ul>
+
+
+</article>
+
+</slide>
+
+</slide>
+<slide id="sec-"  >
+<hgroup class="">
+       <h2 class=" "><div id="outline-container-org4408823" class="outline-3">
+<h3 id="org4408823">Creando funciones</h3>
+</div>
+</h2>
+       <h3></h3>
+       </hgroup>
+<article class="smaller" id="text-">
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="python">
+def NOMBRE(LISTA_DE_PARAMETROS):
+    """DOCSTRING_DE_FUNCION"""
+    SENTENCIAS
+    RETURN [EXPRESION]</pre>
+
+</div>
+
+<ul>
+<li><code>NOMBRE</code>, es el nombre de la función.</li>
+<li><code>LISTA_DE_PARAMETROS</code>, es la lista de parámetros que puede recibir una función.</li>
+<li><code>DOCSTRING_DE_FUNCION</code>, es la cadena de caracteres usada para documentar la función.</li>
+<li><code>SENTENCIAS</code>, es el bloque de sentencias en código fuente Python que realizar cierta operación dada.</li>
+<li><code>RETURN</code>, es la sentencia return en código Python.</li>
+<li><code>EXPRESION</code>, es la expresión o variable que devuelve la sentencia return.</li>
+</ul>
+
+
+</article>
+
+</slide>
+
+</slide>
+<slide id="sec-"  >
+<hgroup class="">
+       <h2 class=" "><div id="outline-container-org76e0e69" class="outline-3">
+<h3 id="org76e0e69">Ejemplos</h3>
+</div>
+</h2>
+       <h3></h3>
+       </hgroup>
+<article class="smaller" id="text-">
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="python">
+&gt;&gt;&gt; def hola(arg):
+...   """El docstring de la función"""
+...   print "Hello", arg, "!"
+&gt;&gt;&gt;
+&gt;&gt;&gt; hola("World")
+Hello World</pre>
+
+</div>
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="python">
+# -*- coding: utf-8 -*-
+def hello(arg):
+    """El docstring de la funcion"""
+    print "Hello", arg, "!"
+$ python
+&gt;&gt;&gt; import hello
+&gt;&gt;&gt; hello.hello("World")
+Hello World</pre>
+
+</div>
+<ul>
+<li>Las sentencias deben estar indentados.</li>
+<li>Por defecto las funciones retornan el valor <code>None</code></li>
+</ul>
+
+<aside class="note">
+  <section>
+<p>
+Enlace a codigo.<sup>1</sup>
+</p>
+
+  </section>
+</aside>
+
+<footer class="source">
+<p class="footpara">1. 
+Codigo fuente <a href="ejemplos/hello.py">hello.py</a>
+</p>
+</footer>
+</article>
+
+</slide>
+
+</slide>
+<slide id="sec-"  >
+<hgroup class="">
+       <h2 class=" "><div id="outline-container-org72dc1c5" class="outline-3">
+<h3 id="org72dc1c5">Funciones, Argumentos y parametros</h3>
+</div>
+</h2>
+       <h3></h3>
+       </hgroup>
+<article class="smaller" id="text-">
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="python">
+&gt;&gt;&gt; def resta(a, b):
+...     return a - b
+...
+&gt;&gt;&gt; resta(30, 10)
+20</pre>
+
+</div>
+
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="python">
+&gt;&gt;&gt; def resta(a, b):
+...     return a - b
+...
+&gt;&gt;&gt; (b=30, a=10)
+-20</pre>
+
+</div>
+
+
+</article>
+
+</slide>
+
+</slide>
+<slide id="sec-"  >
+<hgroup class="">
+       <h2 class=" "><div id="outline-container-org3d2ad90" class="outline-3">
+<h3 id="org3d2ad90">Funciones recursivas</h3>
+</div>
+</h2>
+       <h3></h3>
+       </hgroup>
+<article class="smaller" id="text-">
+<p>
+Las funciones recursivas son funciones que se llaman a sí mismas durante su propia ejecución. Ellas funcionan de forma similar a las iteraciones, pero debe encargarse de planificar el momento en que dejan de llamarse a sí mismas o tendrá una función.
+</p>
+
+<article class="flexbox vcenter">
+
+<div class="figure">
+<p><img src="images/recursion.png" alt="recursion.png" width="600px" />
+</p>
+</div>
+</article>
+
+
+</article>
+
+</slide>
+
+</slide>
+<slide id="sec-"  >
+<hgroup class="">
+       <h2 class=" "><div id="outline-container-orgf4a4341" class="outline-3">
+<h3 id="orgf4a4341">Ejemplos</h3>
+</div>
+</h2>
+       <h3></h3>
+       </hgroup>
+<article class="smaller" id="text-">
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="python">
+# -*- coding: utf-8 -*-
+def cuenta_regresiva(numero):
+    numero -= 1
+    if numero &gt; 0:
+        print numero
+        cuenta_regresiva(numero)
+    else:
+        print "Boooooooom!"
+        print "Fin de la función", numero
+
+def factorial(numero):
+    print "Valor inicial -&gt;",numero
+    if numero &gt; 1:
+        numero = numero * factorial(numero -1)
+    print "valor final -&gt;",numero
+    return numero
+
+&gt;&gt;&gt; recursiva.cuenta_regresiva("World")
+&gt;&gt;&gt; recursiva.factorial(100)</pre>
+
+</div>
+
+<aside class="note">
+  <section>
+<p>
+Enlace a codigo.<sup>1</sup>
+</p>
+
+  </section>
+</aside>
+
+<footer class="source">
+<p class="footpara">1. 
+Codigo fuente <a href="ejemplos/recursiva.py">recursiva.py</a></p>
+</footer>
+</article>
+
+</slide>
+
+</slide>
+<slide id="sec-"  >
+<hgroup class="">
+       <h2 class=" "><div id="outline-container-orga1257df" class="outline-3">
+<h3 id="orga1257df">Funciones anónimas</h3>
+</div>
+</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-">
+<p>
+Una función anónima, como su nombre indica, es una función sin nombre. Es decir, es posible ejecutar una función sin referenciar un nombre.
+</p>
+
+<p>
+<b>El contenido de una función anónima debe ser una única expresión en lugar de un bloque de acciones.</b>
+</p>
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="python">
+&gt;&gt;&gt; def doble(numero): return numero*2
+... 
+&gt;&gt;&gt; doble(2)
+4</pre>
+
+</div>
+
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="python">
+&gt;&gt;&gt; doble = lambda numero: numero*2
+&gt;&gt;&gt; doble(2)
+4</pre>
+
+</div>
+
+
+</article>
+
+</slide>
+
+</slide>
+
+
+
+</slide>
+<slide id="sec-" class=" thank-you-slide segue nobackground" style="background-image: url(nil)">
+<aside class="gdbar right"><img src="images/python-logo.png"></aside><article class="flexbox vleft auto-fadein" id="text-">
+<h2>
+  <p>Gracias</p>
+</h2>
+<br>
+<p class="auto-fadein" data-config-contact>
+</p>
+</article>
+
+</slide>
+<slide class="backdrop"></slide>
+</slides> 
+<!--[if IE]>
+  <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+  <script>CFInstall.check({mode: 'overlay'});</script>
+<![endif]-->
+</body> 
+
+</html>

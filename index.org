@@ -1,0 +1,198 @@
+#+TITLE: Python Language
+#+SUBTITLE: Fundamentos para Machine Learning
+#+DATE: 2019/09/21（Sabado）19:00
+#+AUTHOR: Albert Castellano Moreno
+#+EMAIL: acastemoreno@gmail.com
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t c:nil creator:comment d:(not "LOGBOOK") date:t
+#+OPTIONS: e:t email:nil f:t inline:t num:nil p:nil pri:nil stat:t
+#+OPTIONS: tags:t tasks:t tex:t timestamp:t toc:nil todo:t |:t
+#+CREATOR: Emacs 24.4.1 (Org mode 8.2.10)
+#+DESCRIPTION:
+#+EXCLUDE_TAGS: noexport
+#+KEYWORDS:
+#+LANGUAGE: es
+#+SELECT_TAGS: export
+
+#+TWITTER: acastemoreno
+
+#+FAVICON: images/python-logo.png
+#+ICON: images/python-logo.png
+
+* Contenido
+- Funciones y Programación estructurada
+- Módulos, paquetes y distribucion de software
+- Programación orientada a objetos.
+- Jupyter Notebook y Google Colaboratory.
+- Manipulación de listas
+- Diccionarios
+- Expresiones regulares
+- Python 2 vs 3
+- Archivos
+- Cadenas, listas y diccionarios
+
+* Funciones y Programación estructurada
+  :PROPERTIES:
+  :SLIDE:    segue dark quote
+  :ASIDE:    right bottom
+  :ARTICLE:  flexbox vleft auto-fadein
+  :END:
+
+** Programación estructurada
+Se basa en el uso de =funciones=, =subrutinas= y las siguientes tres estructuras de control:
+- *Secuencia*: ejecución de una sentencia tras otra.
+- *Selección o condicional*: ejecución de una sentencia o conjunto de sentencias, según el valor de una variable booleana.
+- *Iteración (ciclo o bucle)*: ejecución de una sentencia o conjunto de sentencias, mientras una variable booleana sea verdadera.
+
+** Funciones
+Una función es un bloque de código con un nombre asociado, que recibe cero o más argumentos como entrada, sigue una secuencia de sentencias y devuelve un valor.
+
+#+BEGIN_CENTER
+#+ATTR_HTML: :width 250px
+[[file:images/funcion.png]]
+#+END_CENTER
+
+** Utilidad 
+- *Modularización*: permite segmentar un programa complejo en una serie de partes o módulos más simples, facilitando así la programación y el depurado.
+- *Reutilización*: permite reutilizar una misma función en distintos lugares.
+
+** Creando funciones
+:PROPERTIES:
+:ARTICLE:  smaller
+:END:
+#+BEGIN_SRC python
+def NOMBRE(LISTA_DE_PARAMETROS):
+    """DOCSTRING_DE_FUNCION"""
+    SENTENCIAS
+    RETURN [EXPRESION]
+#+END_SRC
+
+- =NOMBRE=, es el nombre de la función.
+- =LISTA_DE_PARAMETROS=, es la lista de parámetros que puede recibir una función.
+- =DOCSTRING_DE_FUNCION=, es la cadena de caracteres usada para documentar la función.
+- =SENTENCIAS=, es el bloque de sentencias en código fuente Python que realizar cierta operación dada.
+- =RETURN=, es la sentencia return en código Python.
+- =EXPRESION=, es la expresión o variable que devuelve la sentencia return.
+
+** Ejemplos
+:PROPERTIES:
+:ARTICLE:  smaller
+:END:
+#+BEGIN_SRC python
+>>> def hola(arg):
+...   """El docstring de la función"""
+...   print "Hello", arg, "!"
+>>>
+>>> hola("World")
+Hello World
+#+END_SRC
+#+ATTR_HTML: :target _blank
+#+BEGIN_SRC python
+# -*- coding: utf-8 -*-
+def hello(arg):
+    """El docstring de la funcion"""
+    print "Hello", arg, "!"
+$ python
+>>> import hello
+>>> hello.hello("World")
+Hello World
+#+END_SRC
+- Las sentencias deben estar indentados.
+- Por defecto las funciones retornan el valor =None=
+
+#+ATTR_HTML: :class note
+#+BEGIN_QUOTE
+Enlace a codigo.[fn:1]
+#+END_QUOTE
+
+** Funciones, Argumentos y parametros
+:PROPERTIES:
+:ARTICLE:  smaller
+:END:
+#+BEGIN_SRC python
+>>> def resta(a, b):
+...     return a - b
+...
+>>> resta(30, 10)
+20
+#+END_SRC
+
+#+BEGIN_SRC python
+>>> def resta(a, b):
+...     return a - b
+...
+>>> (b=30, a=10)
+-20
+#+END_SRC
+
+** Funciones recursivas
+:PROPERTIES:
+:ARTICLE:  smaller
+:END:
+Las funciones recursivas son funciones que se llaman a sí mismas durante su propia ejecución. Ellas funcionan de forma similar a las iteraciones, pero debe encargarse de planificar el momento en que dejan de llamarse a sí mismas o tendrá una función.
+
+#+BEGIN_CENTER
+#+ATTR_HTML: :width 600px
+[[file:images/recursion.png]]
+#+END_CENTER
+
+** Ejemplos
+:PROPERTIES:
+:ARTICLE:  smaller
+:END:
+#+BEGIN_SRC python
+# -*- coding: utf-8 -*-
+def cuenta_regresiva(numero):
+    numero -= 1
+    if numero > 0:
+        print numero
+        cuenta_regresiva(numero)
+    else:
+        print "Boooooooom!"
+        print "Fin de la función", numero
+
+def factorial(numero):
+    print "Valor inicial ->",numero
+    if numero > 1:
+        numero = numero * factorial(numero -1)
+    print "valor final ->",numero
+    return numero
+
+>>> recursiva.cuenta_regresiva("World")
+>>> recursiva.factorial(100)
+#+END_SRC
+
+#+ATTR_HTML: :class note
+#+BEGIN_QUOTE
+Enlace a codigo.[fn:2]
+#+END_QUOTE
+
+** Funciones anónimas
+Una función anónima, como su nombre indica, es una función sin nombre. Es decir, es posible ejecutar una función sin referenciar un nombre.
+
+*El contenido de una función anónima debe ser una única expresión en lugar de un bloque de acciones.*
+#+BEGIN_SRC python
+>>> def doble(numero): return numero*2
+... 
+>>> doble(2)
+4
+#+END_SRC
+
+#+BEGIN_SRC python
+>>> doble = lambda numero: numero*2
+>>> doble(2)
+4
+#+END_SRC
+
+
+
+* Gracias
+:PROPERTIES:
+:SLIDE: thank-you-slide segue
+:ASIDE: right
+:ARTICLE: flexbox vleft auto-fadein
+:END:
+
+* Footnotes
+[fn:1] Codigo fuente [[file:ejemplos/hello.py][hello.py]]
+[fn:2] Codigo fuente [[file:ejemplos/recursiva.py][recursiva.py]]
