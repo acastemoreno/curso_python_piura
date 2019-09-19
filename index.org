@@ -81,7 +81,7 @@ def NOMBRE(LISTA_DE_PARAMETROS):
 #+BEGIN_SRC python
 >>> def hola(arg):
 ...   """El docstring de la función"""
-...   print "Hello", arg, "!"
+...   print("Hello", arg, "!")
 >>>
 >>> hola("World")
 Hello World
@@ -91,7 +91,7 @@ Hello World
 # -*- coding: utf-8 -*-
 def hello(arg):
     """El docstring de la funcion"""
-    print "Hello", arg, "!"
+    print("Hello", arg, "!")
 $ python
 >>> import hello
 >>> hello.hello("World")
@@ -145,17 +145,17 @@ Las funciones recursivas son funciones que se llaman a sí mismas durante su pro
 def cuenta_regresiva(numero):
     numero -= 1
     if numero > 0:
-        print numero
+        print(numero)
         cuenta_regresiva(numero)
     else:
-        print "Boooooooom!"
-        print "Fin de la función", numero
+        print("Boooooooom!")
+    print("Fin de la función" + str(numero))
 
 def factorial(numero):
-    print "Valor inicial ->",numero
+    print("Valor inicial ->",numero)
     if numero > 1:
         numero = numero * factorial(numero -1)
-    print "valor final ->",numero
+    print("valor final ->" + str(numero))
     return numero
 
 >>> recursiva.cuenta_regresiva("World")
@@ -168,7 +168,7 @@ Enlace a codigo.[fn:2]
 #+END_QUOTE
 
 ** Funciones anónimas
-Una función anónima, como su nombre indica, es una función sin nombre. Es decir, es posible ejecutar una función sin referenciar un nombre.
+Una función anónima, como su nombre indica, es una función sin nombre. La unica manera para usar estass funciones es primero guardandolas en una variable.
 
 *El contenido de una función anónima debe ser una única expresión en lugar de un bloque de acciones.*
 #+BEGIN_SRC python
@@ -183,8 +183,6 @@ Una función anónima, como su nombre indica, es una función sin nombre. Es dec
 >>> doble(2)
 4
 #+END_SRC
-
-
 
 * Gracias
 :PROPERTIES:
