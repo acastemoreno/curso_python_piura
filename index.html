@@ -2,7 +2,7 @@
 <html>
 <head>
 <title></title>
-<!-- 2019-09-18 mié 19:30 -->
+<!-- 2019-09-19 jue 17:07 -->
 <meta  charset="utf-8" />
 <meta  htto-equiv="X-UA-Compatible" content="chrome=1" />
 <meta  name="generator" content="Org-mode with org-ioslide" />
@@ -38,22 +38,22 @@
   
 <slide id="sec-"  >
 <hgroup class="">
-       <h2 class=" "><div id="outline-container-org3dfb281" class="outline-2">
-<h2 id="org3dfb281">Contenido</h2>
+       <h2 class=" "><div id="outline-container-org7f91c1c" class="outline-2">
+<h2 id="org7f91c1c">Contenido</h2>
 </div>
 </h2>
        <h3></h3>
        </hgroup>
 <article class="" id="text-">
 <ul>
+<li>Jupyter Notebook y Google Colaboratory.</li>
+<li>Python 2 vs 3</li>
 <li>Funciones y Programación estructurada</li>
 <li>Módulos, paquetes y distribucion de software</li>
 <li>Programación orientada a objetos.</li>
-<li>Jupyter Notebook y Google Colaboratory.</li>
 <li>Manipulación de listas</li>
 <li>Diccionarios</li>
 <li>Expresiones regulares</li>
-<li>Python 2 vs 3</li>
 <li>Archivos</li>
 <li>Cadenas, listas y diccionarios</li>
 </ul>
@@ -66,8 +66,8 @@
 </slide>
 <slide id="sec-" class=" segue dark quote nobackground" style="background-image: url(nil)">
 <aside class="gdbar right bottom"><img src="images/python-logo.png"></aside><hgroup class="">
-       <h2 class=" "><div id="outline-container-org8b62ac6" class="outline-2">
-<h2 id="org8b62ac6">Funciones y Programación estructurada</h2>
+       <h2 class=" "><div id="outline-container-orgcfdbc56" class="outline-2">
+<h2 id="orgcfdbc56">Jupyter Notebook y Google Colaboratory</h2>
 </div>
 </h2>
        <h3></h3>
@@ -80,8 +80,156 @@
 </slide>
 <slide id="sec-"  >
 <hgroup class="">
-       <h2 class=" "><div id="outline-container-org0a454f3" class="outline-3">
-<h3 id="org0a454f3">Programación estructurada</h3>
+       <h2 class=" "><div id="outline-container-orgd01672d" class="outline-3">
+<h3 id="orgd01672d">Jupyter Notebook</h3>
+</div>
+</h2>
+       <h3></h3>
+       </hgroup>
+<article class="smaller" id="text-">
+<p>
+Como aplicación web <b>local</b>, Jupyter Notebook permite <b>escribir y ejecutar codigo desde un navegador web</b>. Los principales lenguajes que soporta son <b>Julia</b>, <b>Python</b>, y <b>R</b>.
+</p>
+<article class="flexbox vcenter">
+
+<div class="figure">
+<p><img src="images/jupyter_screens.png" alt="jupyter_screens.png" width="500px" />
+</p>
+</div>
+</article>
+
+
+</article>
+
+</slide>
+
+</slide>
+<slide id="sec-"  >
+<hgroup class="">
+       <h2 class=" "><div id="outline-container-orgf20629b" class="outline-3">
+<h3 id="orgf20629b">Instalación Easy way</h3>
+</div>
+</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-">
+<p>
+Descarga el instalador de <a href="https://www.anaconda.com/distribution/">Anaconda</a> para tu OS, y ejecuta dando a siguiente siguiente.
+</p>
+
+
+</article>
+
+</slide>
+</slide>
+<slide id="sec-"  >
+<hgroup class="">
+       <h2 class=" "><div id="outline-container-orge3dbbbf" class="outline-3">
+<h3 id="orge3dbbbf">Instalación Hard Way</h3>
+</div>
+</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-">
+<ul>
+<li>Instalar <a href="https://nodejs.org/es/download/">Nodejs</a></li>
+<li>Instalar <a href="https://www.python.org/downloads/">Python</a>, versiones 2.7.16 y 3.7.4 (marcar las opciones <code>add to path</code> y <code>to all users</code>)</li>
+<li>Ejecutar los siguientes comandos en consola</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="sh">
+#Procedimiento valido solo para usuarios Windows
+$ pip install jupyterlab
+$ python -m pip install --upgrade pip
+$ python -m pip install jupyter
+$ py -2 -m pip install ipykernel
+$ py -3 -m pip install ipykernel
+$ py -2 -m ipykernel install --user
+$ py -3 -m ipykernel install --user</pre>
+
+</div>
+
+
+</article>
+
+</slide>
+
+</slide>
+<slide id="sec-"  >
+<hgroup class="">
+       <h2 class=" "><div id="outline-container-orgeab4a61" class="outline-3">
+<h3 id="orgeab4a61"></h3>
+</div>
+</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-">
+<p>
+Ejecutar el comando <code>jupyter lab</code> iniciará la aplicacion web jupyter y lanzara en un navegador web.
+</p>
+<article class="flexbox vcenter">
+
+<div class="figure">
+<p><img src="images/verify_install.png" alt="verify_install.png" width="600px" />
+</p>
+</div>
+</article>
+
+
+</article>
+
+</slide>
+
+</slide>
+<slide id="sec-"  >
+<hgroup class="">
+       <h2 class=" "><div id="outline-container-orgf22e7ee" class="outline-3">
+<h3 id="orgf22e7ee">Google Colaboratory</h3>
+</div>
+</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-">
+<p>
+<a href="https://colab.research.google.com/">Google Colaboratory</a> es un entorno gratuito de Jupiter Notebook que no requiere configuración.
+</p>
+
+<p>
+Permite escribir y ejecutar código, <b>guardar y compartir análisis</b> desde un navegador web.
+</p>
+
+<p>
+La gran ventaje de este entorno es el soporte de Google y la integración con google Drive.
+</p>
+
+
+</article>
+
+</slide>
+
+</slide>
+
+</slide>
+<slide id="sec-" class=" segue dark quote nobackground" style="background-image: url(nil)">
+<aside class="gdbar right bottom"><img src="images/python-logo.png"></aside><hgroup class="">
+       <h2 class=" "><div id="outline-container-orgb12551e" class="outline-2">
+<h2 id="orgb12551e">Funciones y Programación estructurada</h2>
+</div>
+</h2>
+       <h3></h3>
+       </hgroup>
+<article class="flexbox vleft auto-fadein" id="text-">
+
+
+</article>
+
+</slide>
+<slide id="sec-"  >
+<hgroup class="">
+       <h2 class=" "><div id="outline-container-org588659f" class="outline-3">
+<h3 id="org588659f">Programación estructurada</h3>
 </div>
 </h2>
        <h3></h3>
@@ -104,8 +252,8 @@ Se basa en el uso de <code>funciones</code>, <code>subrutinas</code> y las sigui
 </slide>
 <slide id="sec-"  >
 <hgroup class="">
-       <h2 class=" "><div id="outline-container-org2ac9418" class="outline-3">
-<h3 id="org2ac9418">Funciones</h3>
+       <h2 class=" "><div id="outline-container-org40e63c1" class="outline-3">
+<h3 id="org40e63c1">Funciones</h3>
 </div>
 </h2>
        <h3></h3>
@@ -131,8 +279,8 @@ Una función es un bloque de código con un nombre asociado, que recibe cero o m
 </slide>
 <slide id="sec-"  >
 <hgroup class="">
-       <h2 class=" "><div id="outline-container-org0a85740" class="outline-3">
-<h3 id="org0a85740">Utilidad</h3>
+       <h2 class=" "><div id="outline-container-orgf897342" class="outline-3">
+<h3 id="orgf897342">Utilidad</h3>
 </div>
 </h2>
        <h3></h3>
@@ -151,8 +299,8 @@ Una función es un bloque de código con un nombre asociado, que recibe cero o m
 </slide>
 <slide id="sec-"  >
 <hgroup class="">
-       <h2 class=" "><div id="outline-container-orgc8667f5" class="outline-3">
-<h3 id="orgc8667f5">Creando funciones</h3>
+       <h2 class=" "><div id="outline-container-org537316d" class="outline-3">
+<h3 id="org537316d">Creando funciones</h3>
 </div>
 </h2>
        <h3></h3>
@@ -185,8 +333,8 @@ def NOMBRE(LISTA_DE_PARAMETROS):
 </slide>
 <slide id="sec-"  >
 <hgroup class="">
-       <h2 class=" "><div id="outline-container-org9cb0915" class="outline-3">
-<h3 id="org9cb0915">Ejemplos</h3>
+       <h2 class=" "><div id="outline-container-orgee5c623" class="outline-3">
+<h3 id="orgee5c623">Ejemplos</h3>
 </div>
 </h2>
        <h3></h3>
@@ -197,7 +345,7 @@ def NOMBRE(LISTA_DE_PARAMETROS):
 <pre class="prettyprint" data-lang="python">
 &gt;&gt;&gt; def hola(arg):
 ...   """El docstring de la función"""
-...   print("Hello", arg, "!")
+...   print("Hello " , arg , " !")
 &gt;&gt;&gt;
 &gt;&gt;&gt; hola("World")
 Hello World</pre>
@@ -242,8 +390,8 @@ Codigo fuente <a href="ejemplos/hello.py">hello.py</a>
 </slide>
 <slide id="sec-"  >
 <hgroup class="">
-       <h2 class=" "><div id="outline-container-org0239b5b" class="outline-3">
-<h3 id="org0239b5b">Funciones, Argumentos y parametros</h3>
+       <h2 class=" "><div id="outline-container-org1fa2e4a" class="outline-3">
+<h3 id="org1fa2e4a">Funciones, Argumentos y parametros</h3>
 </div>
 </h2>
        <h3></h3>
@@ -279,8 +427,8 @@ Codigo fuente <a href="ejemplos/hello.py">hello.py</a>
 </slide>
 <slide id="sec-"  >
 <hgroup class="">
-       <h2 class=" "><div id="outline-container-org61c81a5" class="outline-3">
-<h3 id="org61c81a5">Funciones recursivas</h3>
+       <h2 class=" "><div id="outline-container-org80b100a" class="outline-3">
+<h3 id="org80b100a">Funciones recursivas</h3>
 </div>
 </h2>
        <h3></h3>
@@ -306,8 +454,8 @@ Las funciones recursivas son funciones que se llaman a sí mismas durante su pro
 </slide>
 <slide id="sec-"  >
 <hgroup class="">
-       <h2 class=" "><div id="outline-container-orga1a9735" class="outline-3">
-<h3 id="orga1a9735">Ejemplos</h3>
+       <h2 class=" "><div id="outline-container-org0751c4f" class="outline-3">
+<h3 id="org0751c4f">Ejemplos</h3>
 </div>
 </h2>
        <h3></h3>
@@ -358,13 +506,13 @@ Codigo fuente <a href="ejemplos/recursiva.py">recursiva.py</a></p>
 </slide>
 <slide id="sec-"  >
 <hgroup class="">
-       <h2 class=" "><div id="outline-container-org6101cdb" class="outline-3">
-<h3 id="org6101cdb">Funciones anónimas</h3>
+       <h2 class=" "><div id="outline-container-orge61cb9b" class="outline-3">
+<h3 id="orge61cb9b">Funciones anónimas</h3>
 </div>
 </h2>
        <h3></h3>
        </hgroup>
-<article class="" id="text-">
+<article class="smaller" id="text-">
 <p>
 Una función anónima, como su nombre indica, es una función sin nombre. La unica manera para usar estass funciones es primero guardandolas en una variable.
 </p>
