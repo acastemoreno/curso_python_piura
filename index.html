@@ -2,7 +2,7 @@
 <html>
 <head>
 <title></title>
-<!-- 2019-09-20 vie 12:57 -->
+<!-- 2019-09-20 vie 18:41 -->
 <meta  charset="utf-8" />
 <meta  htto-equiv="X-UA-Compatible" content="chrome=1" />
 <meta  name="generator" content="Org-mode with org-ioslide" />
@@ -38,8 +38,8 @@
   
 <slide id="sec-"  >
 <hgroup class="">
-       <h2 class=" "><div id="outline-container-org38a0937" class="outline-2">
-<h2 id="org38a0937">Contenido</h2>
+       <h2 class=" "><div id="outline-container-org650de26" class="outline-2">
+<h2 id="org650de26">Contenido</h2>
 </div>
 </h2>
        <h3></h3>
@@ -48,14 +48,18 @@
 <ul>
 <li>Jupyter Notebook y Google Colaboratory.</li>
 <li>Python 2 vs 3</li>
+<li>Tipos basicos
+<ul>
+<li>Numeros</li>
+<li>Cadena de caracteres</li>
+<li>Listas</li>
+<li>Diccionarios</li>
+</ul></li>
 <li>Funciones y Programación estructurada</li>
 <li>Módulos, paquetes y distribucion de software</li>
 <li>Programación orientada a objetos.</li>
-<li>Manipulación de listas</li>
-<li>Diccionarios</li>
 <li>Expresiones regulares</li>
 <li>Archivos</li>
-<li>Cadenas, listas y diccionarios</li>
 </ul>
 
 
@@ -66,8 +70,8 @@
 </slide>
 <slide id="sec-" class=" segue dark quote nobackground" style="background-image: url(nil)">
 <aside class="gdbar right bottom"><img src="images/python-logo.png"></aside><hgroup class="">
-       <h2 class=" "><div id="outline-container-orge0336cf" class="outline-2">
-<h2 id="orge0336cf">Jupyter Notebook y Google Colaboratory</h2>
+       <h2 class=" "><div id="outline-container-org27b8e5f" class="outline-2">
+<h2 id="org27b8e5f">Jupyter Notebook y Google Colaboratory</h2>
 </div>
 </h2>
        <h3></h3>
@@ -80,8 +84,8 @@
 </slide>
 <slide id="sec-"  >
 <hgroup class="">
-       <h2 class=" "><div id="outline-container-org611181a" class="outline-3">
-<h3 id="org611181a">Jupyter Notebook</h3>
+       <h2 class=" "><div id="outline-container-org4b0096b" class="outline-3">
+<h3 id="org4b0096b">Jupyter Notebook</h3>
 </div>
 </h2>
        <h3></h3>
@@ -106,8 +110,8 @@ Como aplicación web <b>local</b>, Jupyter Notebook permite <b>escribir y ejecut
 </slide>
 <slide id="sec-"  >
 <hgroup class="">
-       <h2 class=" "><div id="outline-container-orgd41fd37" class="outline-3">
-<h3 id="orgd41fd37">Instalación (Windows)</h3>
+       <h2 class=" "><div id="outline-container-org1d3441d" class="outline-3">
+<h3 id="org1d3441d">Instalación (Windows)</h3>
 </div>
 </h2>
        <h3></h3>
@@ -141,8 +145,8 @@ $ py -3 -m ipykernel install --user</pre>
 </slide>
 <slide id="sec-"  >
 <hgroup class="">
-       <h2 class=" "><div id="outline-container-orgfae73c4" class="outline-3">
-<h3 id="orgfae73c4"></h3>
+       <h2 class=" "><div id="outline-container-org19e77ae" class="outline-3">
+<h3 id="org19e77ae"></h3>
 </div>
 </h2>
        <h3></h3>
@@ -167,8 +171,8 @@ Ejecutar el comando <code>jupyter lab</code> iniciará la aplicacion web jupyter
 </slide>
 <slide id="sec-"  >
 <hgroup class="">
-       <h2 class=" "><div id="outline-container-orgc363c76" class="outline-3">
-<h3 id="orgc363c76">Google Colaboratory</h3>
+       <h2 class=" "><div id="outline-container-orgd99ec48" class="outline-3">
+<h3 id="orgd99ec48">Google Colaboratory</h3>
 </div>
 </h2>
        <h3></h3>
@@ -196,8 +200,8 @@ La gran ventaje de este entorno es el soporte de Google y la integración con go
 </slide>
 <slide id="sec-" class=" segue dark quote nobackground" style="background-image: url(nil)">
 <aside class="gdbar right bottom"><img src="images/python-logo.png"></aside><hgroup class="">
-       <h2 class=" "><div id="outline-container-orgbe6ea8c" class="outline-2">
-<h2 id="orgbe6ea8c">Python 2 vs Python 3</h2>
+       <h2 class=" "><div id="outline-container-org6a76868" class="outline-2">
+<h2 id="org6a76868">Python 2 vs Python 3</h2>
 </div>
 </h2>
        <h3></h3>
@@ -210,8 +214,8 @@ La gran ventaje de este entorno es el soporte de Google y la integración con go
 </slide>
 <slide id="sec-"  >
 <hgroup class="">
-       <h2 class=" "><div id="outline-container-org77f2a2a" class="outline-3">
-<h3 id="org77f2a2a">Diferencias</h3>
+       <h2 class=" "><div id="outline-container-org0b15ea2" class="outline-3">
+<h3 id="org0b15ea2">Diferencias</h3>
 </div>
 </h2>
        <h3></h3>
@@ -300,8 +304,77 @@ Link2.<sup>2</sup>
 </slide>
 <slide id="sec-" class=" segue dark quote nobackground" style="background-image: url(nil)">
 <aside class="gdbar right bottom"><img src="images/python-logo.png"></aside><hgroup class="">
-       <h2 class=" "><div id="outline-container-org640fda3" class="outline-2">
-<h2 id="org640fda3">Funciones y Programación estructurada</h2>
+       <h2 class=" "><div id="outline-container-org24f56e5" class="outline-2">
+<h2 id="org24f56e5">Tipos basicos</h2>
+</div>
+</h2>
+       <h3></h3>
+       </hgroup>
+<article class="flexbox vleft auto-fadein" id="text-">
+
+
+</article>
+
+</slide>
+
+</slide>
+<slide id="sec-"  >
+<hgroup class="">
+       <h2 class=" "><div id="outline-container-org058b1aa" class="outline-2">
+<h2 id="org058b1aa">Numeros</h2>
+</div>
+</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-">
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="python">
+&gt;&gt;&gt; 2 + 2
+4
+&gt;&gt;&gt; 50 - 5*6
+20
+&gt;&gt;&gt; (50 - 5*6) / 4
+5.0
+&gt;&gt;&gt; 8 / 5  # la división simpre retorna un número de punto flotante
+1.6
+&gt;&gt;&gt; 17 // 3  # la división entera descarta la parte fraccional
+5
+&gt;&gt;&gt; 17 % 3  # el operado % retorna el resto de la división
+2
+&gt;&gt;&gt; 2 ** 7  # 2 a la potencia de 7
+128</pre>
+
+</div>
+
+<aside class="note">
+  <section>
+<p>
+Link1.<sup>1</sup>
+Link1.<sup>2</sup>
+</p>
+
+  </section>
+</aside>
+
+<footer class="source">
+<p class="footpara">1. 
+<a href="https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex">Numeric Types</a>
+</p>
+<p class="footpara">2. 
+<a href="https://docs.python.org/3/library/numeric.html">Numeric and Mathematical Modules</a>
+</p>
+</footer>
+</article>
+
+</slide>
+
+
+</slide>
+<slide id="sec-" class=" segue dark quote nobackground" style="background-image: url(nil)">
+<aside class="gdbar right bottom"><img src="images/python-logo.png"></aside><hgroup class="">
+       <h2 class=" "><div id="outline-container-org9e85579" class="outline-2">
+<h2 id="org9e85579">Cadena de caracteres</h2>
 </div>
 </h2>
        <h3></h3>
@@ -314,8 +387,193 @@ Link2.<sup>2</sup>
 </slide>
 <slide id="sec-"  >
 <hgroup class="">
-       <h2 class=" "><div id="outline-container-org68b12f4" class="outline-3">
-<h3 id="org68b12f4">Programación estructurada</h3>
+       <h2 class=" "><div id="outline-container-org56a12fb" class="outline-3">
+<h3 id="org56a12fb">Cadena de caracteres</h3>
+</div>
+</h2>
+       <h3></h3>
+       </hgroup>
+<article class="smaller" id="text-">
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="python">
+&gt;&gt;&gt; 'doesn\'t'  # usa \' para escapar comillas simples...
+"doesn't"
+&gt;&gt;&gt; "doesn't"  # ...o de lo contrario usa comillas doblas
+"doesn't"
+&gt;&gt;&gt; '"Si," le dijo.'
+'"Si," le dijo.'
+&gt;&gt;&gt; "\"Si,\" le dijo."
+'"Si," le dijo.'
+&gt;&gt;&gt; s = 'Primera línea.\nSegunda línea.'  # \n significa nueva línea
+&gt;&gt;&gt; s  # sin print(), \n es incluído en la salida
+'Primera línea.\nSegunda línea.'
+&gt;&gt;&gt; print(s)  # con print(), \n produce una nueva línea
+Primera línea.
+Segunda línea.</pre>
+
+</div>
+
+<aside class="note">
+  <section>
+<p>
+Link1.<sup>1</sup>
+Link2.<sup>2</sup>
+</p>
+
+  </section>
+</aside>
+
+<footer class="source">
+<p class="footpara">1. 
+<a href="https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str">Text Sequence Type — str</a>
+</p>
+<p class="footpara">2. 
+<a href="https://docs.python.org/3/library/string.html">string — Common string operations</a></p>
+</footer>
+</article>
+
+</slide>
+
+</slide>
+
+</slide>
+<slide id="sec-" class=" segue dark quote nobackground" style="background-image: url(nil)">
+<aside class="gdbar right bottom"><img src="images/python-logo.png"></aside><hgroup class="">
+       <h2 class=" "><div id="outline-container-org63d86fc" class="outline-2">
+<h2 id="org63d86fc">Listas</h2>
+</div>
+</h2>
+       <h3></h3>
+       </hgroup>
+<article class="flexbox vleft auto-fadein" id="text-">
+
+
+</article>
+
+</slide>
+<slide id="sec-"  >
+<hgroup class="">
+       <h2 class=" "><div id="outline-container-org3ccd278" class="outline-3">
+<h3 id="org3ccd278">Listas</h3>
+</div>
+</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-">
+<p>
+Python tiene varios tipos de datos compuestos, usados para agrupar otros valores. El más versátil es la lista, la cual puede ser escrita como una lista de valores separados por coma (ítems) entre corchetes.
+</p>
+
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="python">
+&gt;&gt;&gt; cuadrados = [1, 4, 9, 16, 25]
+&gt;&gt;&gt; cuadrados
+[1, 4, 9, 16, 25]</pre>
+
+</div>
+
+
+</article>
+
+</slide>
+
+</slide>
+<slide id="sec-"  >
+<hgroup class="">
+       <h2 class=" "><div id="outline-container-orgff5dc7c" class="outline-3">
+<h3 id="orgff5dc7c">Listas: Operaciones inmutables</h3>
+</div>
+</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-">
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="python">
+&gt;&gt;&gt; cuadrados = [1, 4, 9, 16, 25]
+&gt;&gt;&gt; cuadrados[0]  # seleccionando un elemento por su index
+1
+&gt;&gt;&gt; cuadrados[-1]
+25
+&gt;&gt;&gt; cuadrados[-3:]  # nueva lista segun rango
+[9, 16, 25]
+&gt;&gt;&gt; cuadrados + [36, 49, 64, 81, 100]  # Concatenados
+[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]</pre>
+
+</div>
+
+
+</article>
+
+</slide>
+
+</slide>
+<slide id="sec-"  >
+<hgroup class="">
+       <h2 class=" "><div id="outline-container-org5112d77" class="outline-3">
+<h3 id="org5112d77">Listas: Operaciones Mutables</h3>
+</div>
+</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-">
+<div class="org-src-container">
+
+<pre class="prettyprint" data-lang="python">
+&gt;&gt;&gt; cubos = [1, 8, 27, 65, 125]
+&gt;&gt;&gt; 4 ** 3  # el cubo de 4 es 64, no 65!
+64
+&gt;&gt;&gt; cubos[3] = 64  # reemplazar el valor incorrecto
+&gt;&gt;&gt; cubos
+[1, 8, 27, 64, 125]
+&gt;&gt;&gt; cubos.append(216)  # agregar el cubo de 6
+&gt;&gt;&gt; cubos.append(7 ** 3)  # y el cubo de 7
+&gt;&gt;&gt; cubos
+[1, 8, 27, 64, 125, 216, 343]</pre>
+
+</div>
+
+<aside class="note">
+  <section>
+<p>
+Link1.<sup>1</sup>
+</p>
+
+  </section>
+</aside>
+
+<footer class="source">
+<p class="footpara">1. 
+<a href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists">More on Lists - Python Documentation</a>
+</p>
+</footer>
+</article>
+
+</slide>
+
+</slide>
+
+</slide>
+<slide id="sec-" class=" segue dark quote nobackground" style="background-image: url(nil)">
+<aside class="gdbar right bottom"><img src="images/python-logo.png"></aside><hgroup class="">
+       <h2 class=" "><div id="outline-container-org34be4be" class="outline-2">
+<h2 id="org34be4be">Funciones y Programación estructurada</h2>
+</div>
+</h2>
+       <h3></h3>
+       </hgroup>
+<article class="flexbox vleft auto-fadein" id="text-">
+
+
+</article>
+
+</slide>
+<slide id="sec-"  >
+<hgroup class="">
+       <h2 class=" "><div id="outline-container-orgaf8e1cc" class="outline-3">
+<h3 id="orgaf8e1cc">Programación estructurada</h3>
 </div>
 </h2>
        <h3></h3>
@@ -338,8 +596,8 @@ Se basa en el uso de <code>funciones</code>, <code>subrutinas</code> y las sigui
 </slide>
 <slide id="sec-"  >
 <hgroup class="">
-       <h2 class=" "><div id="outline-container-org91cdb95" class="outline-3">
-<h3 id="org91cdb95">Funciones</h3>
+       <h2 class=" "><div id="outline-container-orgd26d6fc" class="outline-3">
+<h3 id="orgd26d6fc">Funciones</h3>
 </div>
 </h2>
        <h3></h3>
@@ -365,8 +623,8 @@ Una función es un bloque de código con un nombre asociado, que recibe cero o m
 </slide>
 <slide id="sec-"  >
 <hgroup class="">
-       <h2 class=" "><div id="outline-container-org8ae3a92" class="outline-3">
-<h3 id="org8ae3a92">Utilidad</h3>
+       <h2 class=" "><div id="outline-container-org61ae4a5" class="outline-3">
+<h3 id="org61ae4a5">Utilidad</h3>
 </div>
 </h2>
        <h3></h3>
@@ -385,8 +643,8 @@ Una función es un bloque de código con un nombre asociado, que recibe cero o m
 </slide>
 <slide id="sec-"  >
 <hgroup class="">
-       <h2 class=" "><div id="outline-container-orgffeb902" class="outline-3">
-<h3 id="orgffeb902">Creando funciones</h3>
+       <h2 class=" "><div id="outline-container-org3d32889" class="outline-3">
+<h3 id="org3d32889">Creando funciones</h3>
 </div>
 </h2>
        <h3></h3>
@@ -419,8 +677,8 @@ def NOMBRE(LISTA_DE_PARAMETROS):
 </slide>
 <slide id="sec-"  >
 <hgroup class="">
-       <h2 class=" "><div id="outline-container-org3b1684a" class="outline-3">
-<h3 id="org3b1684a">Ejemplos</h3>
+       <h2 class=" "><div id="outline-container-org6bf7e91" class="outline-3">
+<h3 id="org6bf7e91">Ejemplos</h3>
 </div>
 </h2>
        <h3></h3>
@@ -451,7 +709,7 @@ Hello World</pre>
 
 </div>
 <ul>
-<li>Las sentencias deben estar indentados.</li>
+<li>Las sentencias deben estar indentadas.</li>
 <li>Por defecto las funciones retornan el valor <code>None</code></li>
 </ul>
 
@@ -476,8 +734,8 @@ Codigo fuente <a href="ejemplos/hello.py">hello.py</a>
 </slide>
 <slide id="sec-"  >
 <hgroup class="">
-       <h2 class=" "><div id="outline-container-org4564c77" class="outline-3">
-<h3 id="org4564c77">Funciones, Argumentos y parametros</h3>
+       <h2 class=" "><div id="outline-container-org4c93ec4" class="outline-3">
+<h3 id="org4c93ec4">Funciones, Argumentos y parametros</h3>
 </div>
 </h2>
        <h3></h3>
@@ -513,8 +771,8 @@ Codigo fuente <a href="ejemplos/hello.py">hello.py</a>
 </slide>
 <slide id="sec-"  >
 <hgroup class="">
-       <h2 class=" "><div id="outline-container-orgf0e65b4" class="outline-3">
-<h3 id="orgf0e65b4">Funciones recursivas</h3>
+       <h2 class=" "><div id="outline-container-org087babe" class="outline-3">
+<h3 id="org087babe">Funciones recursivas</h3>
 </div>
 </h2>
        <h3></h3>
@@ -540,8 +798,8 @@ Las funciones recursivas son funciones que se llaman a sí mismas durante su pro
 </slide>
 <slide id="sec-"  >
 <hgroup class="">
-       <h2 class=" "><div id="outline-container-org071a523" class="outline-3">
-<h3 id="org071a523">Ejemplos</h3>
+       <h2 class=" "><div id="outline-container-orgcc41d0d" class="outline-3">
+<h3 id="orgcc41d0d">Ejemplos</h3>
 </div>
 </h2>
        <h3></h3>
@@ -593,15 +851,15 @@ Codigo fuente <a href="ejemplos/recursiva.py">recursiva.py</a>
 </slide>
 <slide id="sec-"  >
 <hgroup class="">
-       <h2 class=" "><div id="outline-container-orgb1c07c9" class="outline-3">
-<h3 id="orgb1c07c9">Funciones anónimas</h3>
+       <h2 class=" "><div id="outline-container-org93ac2f9" class="outline-3">
+<h3 id="org93ac2f9">Funciones anónimas</h3>
 </div>
 </h2>
        <h3></h3>
        </hgroup>
 <article class="smaller" id="text-">
 <p>
-Una función anónima, como su nombre indica, es una función sin nombre. La unica manera para usar estass funciones es primero guardandolas en una variable.
+Una función anónima, como su nombre indica, es una función sin nombre. La unica manera para usar estas funciones es primero guardandolas en una variable.
 </p>
 
 <p>
@@ -632,6 +890,73 @@ Una función anónima, como su nombre indica, es una función sin nombre. La uni
 </slide>
 
 </slide>
+<slide id="sec-"  >
+<hgroup class="">
+       <h2 class=" "><div id="outline-container-orgd1e6868" class="outline-3">
+<h3 id="orgd1e6868">Funciones de orden superior</h3>
+</div>
+</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-">
+<p>
+Las funciones de orden superior son funciones que pueden recibir como parámetros otras funciones y/o devolverlas como resultados.
+</p>
+
+<p>
+Las funciones de orden superior más usadas son las siguientes.
+</p>
+<ul>
+<li>filter</li>
+<li>map</li>
+<li>reduce</li>
+</ul>
+
+<aside class="note">
+  <section>
+<p>
+Enlaces<sup>1</sup>
+Enlaces<sup>2</sup>
+Enlaces<sup>3</sup>
+</p>
+
+  </section>
+</aside>
+
+<footer class="source">
+<p class="footpara">1. 
+<a href="https://docs.python.org/3/library/functions.html#built-in-functions">Built-in Functions</a>
+</p>
+<p class="footpara">2. 
+<a href="https://docs.python.org/3/howto/functional.html#built-in-functions">How to functional</a>
+</p>
+<p class="footpara">3. 
+<a href="https://docs.python.org/3/library/itertools.html#module-itertools">Modulo itertools</a>
+</p>
+</footer>
+</article>
+
+</slide>
+
+</slide>
+
+</slide>
+<slide id="sec-" class=" segue dark quote nobackground" style="background-image: url(nil)">
+<aside class="gdbar right bottom"><img src="images/python-logo.png"></aside><hgroup class="">
+       <h2 class=" "><div id="outline-container-org9b75dcb" class="outline-2">
+<h2 id="org9b75dcb">Módulos, paquetes y distribucion de software</h2>
+</div>
+</h2>
+       <h3></h3>
+       </hgroup>
+<article class="flexbox vleft auto-fadein" id="text-">
+
+
+</article>
+
+</slide>
+
+
 
 </slide>
 <slide id="sec-" class=" thank-you-slide segue nobackground" style="background-image: url(nil)">

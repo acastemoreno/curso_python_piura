@@ -22,14 +22,16 @@
 * Contenido
 - Jupyter Notebook y Google Colaboratory.
 - Python 2 vs 3
+- Tipos basicos
+    - Numeros
+    - Cadena de caracteres
+    - Listas
+    - Diccionarios
 - Funciones y Programación estructurada
 - Módulos, paquetes y distribucion de software
 - Programación orientada a objetos.
-- Manipulación de listas
-- Diccionarios
 - Expresiones regulares
 - Archivos
-- Cadenas, listas y diccionarios
 
 * Jupyter Notebook y Google Colaboratory
   :PROPERTIES:
@@ -102,6 +104,120 @@ Link1.[fn:1]
 Link2.[fn:2]
 #+END_QUOTE
 
+* Tipos basicos
+  :PROPERTIES:
+  :SLIDE:    segue dark quote
+  :ASIDE:    right bottom
+  :ARTICLE:  flexbox vleft auto-fadein
+  :END:
+
+* Numeros
+#+BEGIN_SRC python
+>>> 2 + 2
+4
+>>> 50 - 5*6
+20
+>>> (50 - 5*6) / 4
+5.0
+>>> 8 / 5  # la división simpre retorna un número de punto flotante
+1.6
+>>> 17 // 3  # la división entera descarta la parte fraccional
+5
+>>> 17 % 3  # el operado % retorna el resto de la división
+2
+>>> 2 ** 7  # 2 a la potencia de 7
+128
+#+END_SRC
+
+#+Attr_HTML: :class note
+#+BEGIN_QUOTE
+Link1.[fn:10]
+Link1.[fn:11]
+#+END_QUOTE
+
+
+* Cadena de caracteres
+  :PROPERTIES:
+  :SLIDE:    segue dark quote
+  :ASIDE:    right bottom
+  :ARTICLE:  flexbox vleft auto-fadein
+  :END:
+
+** Cadena de caracteres
+  :PROPERTIES:
+  :ARTICLE:  smaller
+  :END:
+#+BEGIN_SRC python
+>>> 'doesn\'t'  # usa \' para escapar comillas simples...
+"doesn't"
+>>> "doesn't"  # ...o de lo contrario usa comillas doblas
+"doesn't"
+>>> '"Si," le dijo.'
+'"Si," le dijo.'
+>>> "\"Si,\" le dijo."
+'"Si," le dijo.'
+>>> s = 'Primera línea.\nSegunda línea.'  # \n significa nueva línea
+>>> s  # sin print(), \n es incluído en la salida
+'Primera línea.\nSegunda línea.'
+>>> print(s)  # con print(), \n produce una nueva línea
+Primera línea.
+Segunda línea.
+#+END_SRC
+
+#+Attr_HTML: :class note
+#+BEGIN_QUOTE
+Link1.[fn:12]
+Link2.[fn:13]
+#+END_QUOTE
+
+* Listas
+  :PROPERTIES:
+  :SLIDE:    segue dark quote
+  :ASIDE:    right bottom
+  :ARTICLE:  flexbox vleft auto-fadein
+  :END:
+
+** Listas
+Python tiene varios tipos de datos compuestos, usados para agrupar otros valores. El más versátil es la lista, la cual puede ser escrita como una lista de valores separados por coma (ítems) entre corchetes.
+
+#+BEGIN_SRC python
+>>> cuadrados = [1, 4, 9, 16, 25]
+>>> cuadrados
+[1, 4, 9, 16, 25]
+#+END_SRC
+
+** Listas: Operaciones inmutables
+#+BEGIN_SRC python
+>>> cuadrados = [1, 4, 9, 16, 25]
+>>> cuadrados[0]  # seleccionando un elemento por su index
+1
+>>> cuadrados[-1]
+25
+>>> cuadrados[-3:]  # nueva lista segun rango
+[9, 16, 25]
+>>> cuadrados + [36, 49, 64, 81, 100]  # Concatenados
+[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+#+END_SRC
+
+** Listas: Operaciones Mutables
+#+BEGIN_SRC python
+>>> cubos = [1, 8, 27, 65, 125]
+>>> 4 ** 3  # el cubo de 4 es 64, no 65!
+64
+>>> cubos[3] = 64  # reemplazar el valor incorrecto
+>>> cubos
+[1, 8, 27, 64, 125]
+>>> cubos.append(216)  # agregar el cubo de 6
+>>> cubos.append(7 ** 3)  # y el cubo de 7
+>>> cubos
+[1, 8, 27, 64, 125, 216, 343]
+#+END_SRC
+
+#+Attr_HTML: :class note
+#+BEGIN_QUOTE
+Link1.[fn:9]
+#+END_QUOTE
+
 * Funciones y Programación estructurada
   :PROPERTIES:
   :SLIDE:    segue dark quote
@@ -128,9 +244,9 @@ Una función es un bloque de código con un nombre asociado, que recibe cero o m
 - *Reutilización*: permite reutilizar una misma función en distintos lugares.
 
 ** Creando funciones
-:PROPERTIES:
-:ARTICLE:  smaller
-:END:
+  :PROPERTIES:
+  :ARTICLE:  smaller
+  :END:
 #+BEGIN_SRC python
 def NOMBRE(LISTA_DE_PARAMETROS):
     """DOCSTRING_DE_FUNCION"""
@@ -168,7 +284,7 @@ $ python
 >>> hello.hello("World")
 Hello World
 #+END_SRC
-- Las sentencias deben estar indentados.
+- Las sentencias deben estar indentadas.
 - Por defecto las funciones retornan el valor =None=
 
 #+ATTR_HTML: :class note
@@ -242,7 +358,7 @@ Enlace a codigo.[fn:4]
 :PROPERTIES:
 :ARTICLE:  smaller
 :END:
-Una función anónima, como su nombre indica, es una función sin nombre. La unica manera para usar estass funciones es primero guardandolas en una variable.
+Una función anónima, como su nombre indica, es una función sin nombre. La unica manera para usar estas funciones es primero guardandolas en una variable.
 
 *El contenido de una función anónima debe ser una única expresión en lugar de un bloque de acciones.*
 #+BEGIN_SRC python
@@ -258,6 +374,30 @@ Una función anónima, como su nombre indica, es una función sin nombre. La uni
 4
 #+END_SRC
 
+** Funciones de orden superior
+Las funciones de orden superior son funciones que pueden recibir como parámetros otras funciones y/o devolverlas como resultados.
+
+Las funciones de orden superior más usadas son las siguientes.
+- filter
+- map
+- reduce
+
+#+ATTR_HTML: :class note
+#+BEGIN_QUOTE
+Enlaces[fn:5]
+Enlaces[fn:6]
+Enlaces[fn:7]
+#+END_QUOTE
+
+* Módulos, paquetes y distribucion de software
+:PROPERTIES:
+:SLIDE:    segue dark quote
+:ASIDE:    right bottom
+:ARTICLE:  flexbox vleft auto-fadein
+:END:
+
+
+
 * Gracias
 :PROPERTIES:
 :SLIDE: thank-you-slide segue
@@ -270,3 +410,12 @@ Una función anónima, como su nombre indica, es una función sin nombre. La uni
 [fn:2] [[https://www.guru99.com/python-2-vs-python-3.html][Python 2 vs Python 3: Key Differences]]
 [fn:3] Codigo fuente [[file:ejemplos/hello.py][hello.py]]
 [fn:4] Codigo fuente [[file:ejemplos/recursiva.py][recursiva.py]]
+[fn:5] [[https://docs.python.org/3/library/functions.html#built-in-functions][Built-in Functions]]
+[fn:6] [[https://docs.python.org/3/howto/functional.html#built-in-functions][How to functional]]
+[fn:7] [[https://docs.python.org/3/library/itertools.html#module-itertools][Modulo itertools]]
+[fn:8] [[https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range][]]
+[fn:9] [[https://docs.python.org/3/tutorial/datastructures.html#more-on-lists][More on Lists - Python Documentation]]
+[fn:10] [[https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex][Numeric Types]]
+[fn:11] [[https://docs.python.org/3/library/numeric.html][Numeric and Mathematical Modules]]
+[fn:12] [[https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str][Text Sequence Type — str]]
+[fn:13] [[https://docs.python.org/3/library/string.html][string — Common string operations]]
