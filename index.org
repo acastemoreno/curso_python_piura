@@ -48,19 +48,26 @@ Como aplicación web *local*, Jupyter Notebook permite *escribir y ejecutar codi
 [[file:images/jupyter_screens.png]]
 #+END_CENTER
 
-** Instalación Easy way
-Descarga el instalador de [[https://www.anaconda.com/distribution/][Anaconda]] para tu Sistema Operativo, y ejecuta dando a siguiente, siguiente.
+#
+#** Instalación Anaconda
+#Descarga el instalador de [[https://www.anaconda.com/#distribution/][Anaconda]] para tu Sistema Operativo, y #ejecuta dando a siguiente, siguiente.
+#+BEGIN_SRC sh
+#$ conda create -n py27 python=2.7
+#$ conda activate py27
+#$ conda install notebook ipykernel
+#$ ipython kernel install --user
+##+END_SRC
+#Recomendado por empezar a programar.
 
-Recomendado por empezar a programar.
-** Instalación Hard Way
+** Instalación (Windows)
 - Instalar [[https://nodejs.org/es/download/][Nodejs]]
 - Instalar [[https://www.python.org/downloads/][Python]], versiones 2.7.16 y 3.7.4 (marcar las opciones =add to path= y =to all users=)
 - Ejecutar los siguientes comandos en consola
 
 #+BEGIN_SRC sh
 #Procedimiento valido solo para usuarios Windows
-$ pip install jupyterlab
 $ python -m pip install --upgrade pip
+$ pip -m install jupyterlab
 $ python -m pip install jupyter
 $ py -2 -m pip install ipykernel
 $ py -3 -m pip install ipykernel
@@ -69,14 +76,14 @@ $ py -3 -m ipykernel install --user
 #+END_SRC
 
 ** 
-Ejecutar el comando =jupyter lab= iniciará la aplicacion web jupyter y lanzara en un navegador web.
+Ejecutar el comando =jupyter lab= iniciará la aplicacion web jupyterlab y se abrira una pestaña en el navegador web.
 #+BEGIN_CENTER
 #+ATTR_HTML: :width 600px
 [[file:images/verify_install.png]]
 #+END_CENTER
 
 ** Google Colaboratory
-[[https://colab.research.google.com/][Google Colaboratory]] es un entorno gratuito de Jupiter Notebook que no requiere configuración.
+[[https://colab.research.google.com/][Google Colaboratory]] es un entorno gratuito de Jupiter Notebook que =no requiere configuración=.
 
 Permite escribir y ejecutar código, *guardar y compartir análisis* desde un navegador web.
 
