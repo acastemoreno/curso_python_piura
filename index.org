@@ -48,17 +48,6 @@ Como aplicación web *local*, Jupyter Notebook permite *escribir y ejecutar codi
 [[file:images/jupyter_screens.png]]
 #+END_CENTER
 
-#
-#** Instalación Anaconda
-#Descarga el instalador de [[https://www.anaconda.com/#distribution/][Anaconda]] para tu Sistema Operativo, y #ejecuta dando a siguiente, siguiente.
-#+BEGIN_SRC sh
-#$ conda create -n py27 python=2.7
-#$ conda activate py27
-#$ conda install notebook ipykernel
-#$ ipython kernel install --user
-##+END_SRC
-#Recomendado por empezar a programar.
-
 ** Instalación (Windows)
 - Instalar [[https://nodejs.org/es/download/][Nodejs]]
 - Instalar [[https://www.python.org/downloads/][Python]], versiones 2.7.16 y 3.7.4 (marcar las opciones =add to path= y =to all users=)
@@ -88,6 +77,30 @@ Ejecutar el comando =jupyter lab= iniciará la aplicacion web jupyterlab y se ab
 Permite escribir y ejecutar código, *guardar y compartir análisis* desde un navegador web.
 
 La gran ventaje de este entorno es el soporte de Google y la integración con google Drive.
+
+* Python 2 vs Python 3
+  :PROPERTIES:
+  :SLIDE:    segue dark quote
+  :ASIDE:    right bottom
+  :ARTICLE:  flexbox vleft auto-fadein
+  :END:
+
+** Diferencias
+| Comparacion                | Python2                    | Python3                  |
+|----------------------------+----------------------------+--------------------------|
+| Tipo de proyecto           | Legacy                     | Moderno                  |
+| Funcion =print=            | print "hello"              | print("hello")           |
+| Division de enteros        | 5/2=2 (5.0/2.0=2.5)        | 5/2=2.5                  |
+| Codificacion de caracteres | ASCII                      | Unicode                  |
+| Input user                 | =input()=  y =raw_input()= | =input()=                |
+| Librerias                  | Incompatible con Python3   | Incompatible con Python2 |
+|----------------------------+----------------------------+--------------------------|
+
+#+Attr_HTML: :class note
+#+BEGIN_QUOTE
+Link1.[fn:1]
+Link2.[fn:2]
+#+END_QUOTE
 
 * Funciones y Programación estructurada
   :PROPERTIES:
@@ -160,7 +173,7 @@ Hello World
 
 #+ATTR_HTML: :class note
 #+BEGIN_QUOTE
-Enlace a codigo.[fn:1]
+Enlace a codigo.[fn:3]
 #+END_QUOTE
 
 ** Funciones, Argumentos y parametros
@@ -222,7 +235,7 @@ def factorial(numero):
 
 #+ATTR_HTML: :class note
 #+BEGIN_QUOTE
-Enlace a codigo.[fn:2]
+Enlace a codigo.[fn:4]
 #+END_QUOTE
 
 ** Funciones anónimas
@@ -253,5 +266,7 @@ Una función anónima, como su nombre indica, es una función sin nombre. La uni
 :END:
 
 * Footnotes
-[fn:1] Codigo fuente [[file:ejemplos/hello.py][hello.py]]
-[fn:2] Codigo fuente [[file:ejemplos/recursiva.py][recursiva.py]]
+[fn:1] [[https://www.pythonmania.net/es/2016/02/29/las-principales-diferencias-entre-python-2-y-3-con-ejemplos/][Las principales diferencias entre python 2 y 3 con ejemplos]]
+[fn:2] [[https://www.guru99.com/python-2-vs-python-3.html][Python 2 vs Python 3: Key Differences]]
+[fn:3] Codigo fuente [[file:ejemplos/hello.py][hello.py]]
+[fn:4] Codigo fuente [[file:ejemplos/recursiva.py][recursiva.py]]
