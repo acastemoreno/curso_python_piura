@@ -19,19 +19,24 @@
 #+FAVICON: images/python-logo.png
 #+ICON: images/python-logo.png
 
-* Contenido
+* Contenido 1era Sesión
 - Jupyter Notebook y Google Colaboratory.
 - Python 2 vs 3
 - Tipos basicos
-    - Numeros
-    - Cadena de caracteres
-    - Listas
-    - Diccionarios
-- Funciones y Programación estructurada
-- Módulos, paquetes y distribucion de software
-- Programación orientada a objetos.
+  - Numeros
+  - Cadena de caracteres
+  - Listas
+  - Diccionarios
+- Programación estructurada
+  - Estructuras de control
+  - Funciones
+* Contenido 2da Sesión
 - Expresiones regulares
 - Archivos
+- Programación orientada a objetos.
+- Ambientes virtuales (virtualenv) y librerias
+- Uso basico de numpy
+- Uso basico de matplotlib
 
 * Jupyter Notebook y Google Colaboratory
   :PROPERTIES:
@@ -131,8 +136,8 @@ Link2.[fn:2]
 
 #+Attr_HTML: :class note
 #+BEGIN_QUOTE
-Link1.[fn:10]
-Link1.[fn:11]
+Link1.[fn:3]
+Link1.[fn:4]
 #+END_QUOTE
 
 
@@ -166,8 +171,8 @@ Segunda línea.
 
 #+Attr_HTML: :class note
 #+BEGIN_QUOTE
-Link1.[fn:12]
-Link2.[fn:13]
+Link1.[fn:5]
+Link2.[fn:6]
 #+END_QUOTE
 
 * Listas
@@ -185,6 +190,11 @@ Python tiene varios tipos de datos compuestos, usados para agrupar otros valores
 >>> cuadrados
 [1, 4, 9, 16, 25]
 #+END_SRC
+
+#+Attr_HTML: :class note
+#+BEGIN_QUOTE
+Link1.[fn:7]
+#+END_QUOTE
 
 ** Listas: Operaciones inmutables
 #+BEGIN_SRC python
@@ -215,10 +225,49 @@ Python tiene varios tipos de datos compuestos, usados para agrupar otros valores
 
 #+Attr_HTML: :class note
 #+BEGIN_QUOTE
-Link1.[fn:9]
+Link1.[fn:8]
 #+END_QUOTE
 
-* Funciones y Programación estructurada
+* Diccionarios
+  :PROPERTIES:
+  :SLIDE:    segue dark quote
+  :ASIDE:    right bottom
+  :ARTICLE:  flexbox vleft auto-fadein
+  :END:
+
+** Diccionarios
+Los diccionarios son estructuras de datos que identifican a sus elementos (no ordenados) mediante una llave unica dentro del diccionario en particular.
+
+#+BEGIN_SRC python
+>>> diccionario = {'nombre' : 'Albert', 'apellido' : 'Castellano', 'edad' : 27 }
+>>> diccionario['nombre']
+'Albert'
+>>> diccionario['edad']
+26
+>>> diccionario['apellido']
+'Castellano'
+#+END_SRC
+
+#+Attr_HTML: :class note
+#+BEGIN_QUOTE
+Link1.[fn:12]
+#+END_QUOTE
+
+** Diccionarios: Operaciones
+
+#+BEGIN_SRC python
+>>> dict = dict([('sape', 4139), ('guido', 4127), ('jack', 4098)])
+>>> dict['guido']
+4127
+>>> versiones = {'python': 2.7, 'zope': 2.13, 'plone': None}
+>>> versiones['plone'] = 5.1
+>>> versiones
+{'python': 2.7, 'zope': 2.13, 'plone': 5.1}
+>>> versiones['plone']
+5.1
+#+END_SRC
+
+* Programación estructurada
   :PROPERTIES:
   :SLIDE:    segue dark quote
   :ASIDE:    right bottom
@@ -231,6 +280,62 @@ Se basa en el uso de =funciones=, =subrutinas= y las siguientes tres estructuras
 - *Selección o condicional*: ejecución de una sentencia o conjunto de sentencias, según el valor de una variable booleana.
 - *Iteración (ciclo o bucle)*: ejecución de una sentencia o conjunto de sentencias, mientras una variable booleana sea verdadera.
 
+* Estructuras de control
+  :PROPERTIES:
+  :SLIDE:    segue dark quote
+  :ASIDE:    right bottom
+  :ARTICLE:  flexbox vleft auto-fadein
+  :END:
+
+** Condicional if
+#+BEGIN_SRC python
+numero = int(input("\nIngresa un número entero, por favor: "))
+
+if numero < 0:
+    numero = 0
+    print('El número ingresado es negativo cambiado a cero.\n')
+elif numero == 0:
+    print('El número ingresado es 0.\n')
+elif numero == 1:
+    print('El número ingresado es 1.\n')
+else:
+    print('El número ingresado es mayor que uno.\n')
+#+END_SRC
+
+** Bucle while
+#+BEGIN_SRC python
+promedio, total, contar = 0.0, 0, 0
+print("Introduzca la nota de un estudiante (-1 para salir): ")
+grado = int(input())	
+while grado != -1:
+    total = total + grado
+    contar = contar + 1
+    print("Introduzca la nota de un estudiante (-1 para salir): ")
+    grado = int(input())
+print("La suma de notas es: " + str(total))
+promedio = total / contar
+print("Promedio de notas del grado escolar es: " + str(promedio))
+#+END_SRC
+
+** Bucle for
+#+BEGIN_SRC python
+db_connection = "127.0.0.1","5432","root","nomina"
+for parametro in db_connection:
+    print parametro
+else:
+    print("""El comando PostgreSQL es: 
+$ psql -h {server} -p {port} -U {user} -d {db_name}""".format(
+        server=db_connection[0], port=db_connection[1], 
+        user=db_connection[2], db_name=db_connection[3]))
+#+END_SRC
+
+* Funciones
+  :PROPERTIES:
+  :SLIDE:    segue dark quote
+  :ASIDE:    right bottom
+  :ARTICLE:  flexbox vleft auto-fadein
+  :END:
+
 ** Funciones
 Una función es un bloque de código con un nombre asociado, que recibe cero o más argumentos como entrada, sigue una secuencia de sentencias y devuelve un valor.
 
@@ -238,6 +343,11 @@ Una función es un bloque de código con un nombre asociado, que recibe cero o m
 #+ATTR_HTML: :width 250px
 [[file:images/funcion.png]]
 #+END_CENTER
+
+#+Attr_HTML: :class note
+#+BEGIN_QUOTE
+Enlaces[fn:9]
+#+END_QUOTE
 
 ** Utilidad 
 - *Modularización*: permite segmentar un programa complejo en una serie de partes o módulos más simples, facilitando así la programación y el depurado.
@@ -261,36 +371,17 @@ def NOMBRE(LISTA_DE_PARAMETROS):
 - =RETURN=, es la sentencia return en código Python.
 - =EXPRESION=, es la expresión o variable que devuelve la sentencia return.
 
-** Ejemplos
-:PROPERTIES:
-:ARTICLE:  smaller
-:END:
+** Ejemplo
 #+BEGIN_SRC python
->>> def hola(arg):
+>>> def hello(arg):
 ...   """El docstring de la función"""
 ...   print("Hello " , arg , " !")
 >>>
->>> hola("World")
-Hello World
-#+END_SRC
-#+ATTR_HTML: :target _blank
-#+BEGIN_SRC python
-# -*- coding: utf-8 -*-
-def hello(arg):
-    """El docstring de la funcion"""
-    print("Hello", arg, "!")
-$ python
->>> import hello
->>> hello.hello("World")
+>>> hello("World")
 Hello World
 #+END_SRC
 - Las sentencias deben estar indentadas.
 - Por defecto las funciones retornan el valor =None=
-
-#+ATTR_HTML: :class note
-#+BEGIN_QUOTE
-Enlace a codigo.[fn:3]
-#+END_QUOTE
 
 ** Funciones, Argumentos y parametros
 :PROPERTIES:
@@ -308,7 +399,7 @@ Enlace a codigo.[fn:3]
 >>> def resta(a, b):
 ...     return a - b
 ...
->>> (b=30, a=10)
+>>> resta(b=30, a=10)
 -20
 #+END_SRC
 
@@ -349,15 +440,10 @@ def factorial(numero):
 >>> recursiva.factorial(100)
 #+END_SRC
 
-#+ATTR_HTML: :class note
-#+BEGIN_QUOTE
-Enlace a codigo.[fn:4]
-#+END_QUOTE
-
 ** Funciones anónimas
-:PROPERTIES:
-:ARTICLE:  smaller
-:END:
+  :PROPERTIES:
+  :ARTICLE:  smaller
+  :END:
 Una función anónima, como su nombre indica, es una función sin nombre. La unica manera para usar estas funciones es primero guardandolas en una variable.
 
 *El contenido de una función anónima debe ser una única expresión en lugar de un bloque de acciones.*
@@ -384,18 +470,37 @@ Las funciones de orden superior más usadas son las siguientes.
 
 #+ATTR_HTML: :class note
 #+BEGIN_QUOTE
-Enlaces[fn:5]
-Enlaces[fn:6]
-Enlaces[fn:7]
+Enlaces[fn:10]
+Enlaces[fn:11]
 #+END_QUOTE
 
-* Módulos, paquetes y distribucion de software
-:PROPERTIES:
-:SLIDE:    segue dark quote
-:ASIDE:    right bottom
-:ARTICLE:  flexbox vleft auto-fadein
-:END:
+** Funciones de orden superior
+  :PROPERTIES:
+  :ARTICLE:  smaller
+  :END:
+#+BEGIN_SRC python
+>>> numeros = [2, 5, 10, 23, 50, 33]
+>>> filter(lambda numero: numero%5 == 0, numeros)
+[5, 10, 50]
 
+>>> map(lambda x: x*2, numeros)
+[4, 10, 20, 46, 100, 66]
+>>> a = [1, 2, 3, 4, 5]
+>>> b = [6, 7, 8, 9, 10]
+>>> map(lambda x,y : x*y, a,b)
+[6, 14, 24, 36, 50]
+
+>>> from functools import reduce
+>>> reduce(lambda x,y : x*y, [1, 2, 3, 4], 1) #lambda, iterable , valor inicial
+#+END_SRC
+
+
+** Ejercicios
+- [[https://www.codewars.com/kata/54bf1c2cd5b56cc47f0007a1/train/python][Codewars - Counting Duplicates]]
+- [[https://www.codewars.com/kata/54edbc7200b811e956000556/train/python][Codewars - Counting sheep...]]
+- [[https://www.codewars.com/kata/5a3fe3dde1ce0e8ed6000097/train/python][Codewars - Century From Year]]
+- [[https://www.codewars.com/kata/53369039d7ab3ac506000467/train/python][Codewars - Convert boolean values to strings 'Yes' or 'No'.]]
+- [[https://www.codewars.com/kata/5513795bd3fafb56c200049e/train/python][Codewars - Count by X]]
 
 
 * Gracias
@@ -408,14 +513,13 @@ Enlaces[fn:7]
 * Footnotes
 [fn:1] [[https://www.pythonmania.net/es/2016/02/29/las-principales-diferencias-entre-python-2-y-3-con-ejemplos/][Las principales diferencias entre python 2 y 3 con ejemplos]]
 [fn:2] [[https://www.guru99.com/python-2-vs-python-3.html][Python 2 vs Python 3: Key Differences]]
-[fn:3] Codigo fuente [[file:ejemplos/hello.py][hello.py]]
-[fn:4] Codigo fuente [[file:ejemplos/recursiva.py][recursiva.py]]
-[fn:5] [[https://docs.python.org/3/library/functions.html#built-in-functions][Built-in Functions]]
-[fn:6] [[https://docs.python.org/3/howto/functional.html#built-in-functions][How to functional]]
-[fn:7] [[https://docs.python.org/3/library/itertools.html#module-itertools][Modulo itertools]]
-[fn:8] [[https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range][]]
-[fn:9] [[https://docs.python.org/3/tutorial/datastructures.html#more-on-lists][More on Lists - Python Documentation]]
-[fn:10] [[https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex][Numeric Types]]
-[fn:11] [[https://docs.python.org/3/library/numeric.html][Numeric and Mathematical Modules]]
-[fn:12] [[https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str][Text Sequence Type — str]]
-[fn:13] [[https://docs.python.org/3/library/string.html][string — Common string operations]]
+[fn:3] [[https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex][Numeric Types]]
+[fn:4] [[https://docs.python.org/3/library/numeric.html][Numeric and Mathematical Modules]]
+[fn:5] [[https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str][Text Sequence Type — str]]
+[fn:6] [[https://docs.python.org/3/library/string.html][string — Common string operations]]
+[fn:7] [[https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range][Sequence Types — list, tuple, range]]
+[fn:8] [[https://docs.python.org/3/tutorial/datastructures.html#more-on-lists][More on Lists - Python Documentation]]
+[fn:9] [[https://docs.python.org/3/library/functions.html#built-in-functions][Built-in Functions]]
+[fn:10] [[https://docs.python.org/3/howto/functional.html#built-in-functions][How to functional]]
+[fn:11] [[https://docs.python.org/3/library/itertools.html#module-itertools][Modulo itertools]]
+[fn:12] [[https://docs.python.org/3/library/stdtypes.html#typesmapping][Mapping Types — dict]]
