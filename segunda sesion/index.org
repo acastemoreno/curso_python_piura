@@ -1,0 +1,114 @@
+#+TITLE: Python Language
+#+SUBTITLE: 2da sesión
+#+DATE: 2019/09/21（Sabado）19:00
+#+AUTHOR: Albert Castellano Moreno
+#+EMAIL: acastemoreno@gmail.com
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t c:nil creator:comment d:(not "LOGBOOK") date:t
+#+OPTIONS: e:t email:nil f:t inline:t num:nil p:nil pri:nil stat:t
+#+OPTIONS: tags:t tasks:t tex:t timestamp:t toc:nil todo:t |:t
+#+CREATOR: Emacs 24.4.1 (Org mode 8.2.10)
+#+DESCRIPTION:
+#+EXCLUDE_TAGS: noexport
+#+KEYWORDS:
+#+LANGUAGE: es
+#+SELECT_TAGS: export
+
+#+TWITTER: acastemoreno
+
+#+FAVICON: images/python-logo.png
+#+ICON: images/python-logo.png
+
+* Contenido 2da Sesión
+- Expresiones regulares
+    - Mecaracteres
+    - Ejemplos
+- Archivos
+- Ambientes virtuales (virtualenv) y librerias
+- Uso basico de numpy
+- Uso basico de matplotlib
+
+* Expresiones regulares
+  :PROPERTIES:
+  :SLIDE:    segue dark quote
+  :ASIDE:    right bottom
+  :ARTICLE:  flexbox vleft auto-fadein
+  :END:
+
+** Necesidad
+Uno de los problemas más comunes en el desarrollo de cualquier programa informático, es el de procesamiento de texto. Tarea trivial para el ser humano, ya que nosotros podemos detectar con facilidad que es un número y que una letra, o cuales son palabras que cumplen con un determinado patrón y cuales no; pero estas mismas tareas no son tan fáciles para una computadora.
+
+Luego de años de investigacion en el area de ciencias de la computación, se creo un lenguaje poderoso y versatil conocido como =expresiones regulares=.
+
+** Expresiones regulares
+Las *expresiones regulares*, a menudo llamada también regex, son unas *secuencias de caracteres* que forma un *patrón de búsqueda*, las cuales son formalizadas por medio de una *sintaxis específica*.
+
+Los patrones se interpretan como un *conjunto de instrucciones*, que luego se ejecutan sobre un texto de entrada para *producir un subconjunto o una versión modificada del texto original*.[fn:1]
+
+
+** Componentes de expresiones regulares
+Las expresiones regulares son un *mini lenguaje* en sí mismo, por lo que para poder utilizarlas eficientemente primero debemos entender los *componentes de su sintaxis*; ellos son:
+
+- *Literales*: Cualquier caracter que se encuentra a sí mismo, a menos que se trate de un =metacaracter= con significado especial.
+- *Clases de caracteres*: Se pueden especificar clases de caracteres encerrando una lista de caracteres entre corchetes [], la que que encontrará cualquiera de los caracteres de la lista. Si el primer símbolo después del "[" es "^", la clase encuentra cualquier caracter que no está en la lista.
+
+** Componentes de expresiones regulares
+- *Secuencias de escape*: Finales de línea, tabs, barras diagonales, etc. Las principales secuencias de escape que podemos encontrar, son:
+
+| Secuencia de escape | Significado            |
+|---------------------+------------------------|
+| =\n=                | Nueva línea (new line) |
+| =\t=                | Tabulación             |
+| =\\=                | Barra diagonal inversa |
+| =\v=                | Tabulacion vertical    |
+
+- *Metacaracteres*: Caracteres especiales que modifican enormemente los patrones creados.
+
+* Metacaracteres
+  :PROPERTIES:
+  :SLIDE:    segue dark quote
+  :ASIDE:    right bottom
+  :ARTICLE:  flexbox vleft auto-fadein
+  :END:
+
+** Metacaracteres - delimitadores de busqueda
+| Metacaracter | Significado                            |
+|--------------+----------------------------------------|
+| =^=          | inicio de línea                        |
+| =$=          | fin de línea                           |
+| =\A=         | inicio de texto                        |
+| =\Z=         | fin de texto                           |
+| =.=          | cualquier caracter en la línea         |
+| =\b=         | encuentra límite de palabra            |
+| =\B=         | encuentra distinto a límite de palabra |
+
+** Metacaracteres - clases predefinidas
+| Metacaracter | Significado                                  |
+|--------------+----------------------------------------------|
+| =\w=         | un caracter alfanumérico (incluye "_")       |
+| =\W=         | un caracter no alfanumérico                  |
+| =\d=         | un caracter numérico                         |
+| =\D=         | un caracter no numérico                      |
+| =\s=         | cualquier espacio (lo mismo que [ \t\n\r\f]) |
+| =\S=         | un no espacio                                |
+
+** Metacaracteres - iteradores (Numero de ocurrencias)
+| Metacaracter | Significado                           |
+|--------------+---------------------------------------|
+| ={n}=        | exactamente n veces                   |
+| ={n,}=       | por lo menos n veces                  |
+| ={n,m}=      | por lo menos n pero no más de m veces |
+| =*=          | cero o más, similar a {0,}            |
+| =+=          | una o más, similar a {1,}             |
+| =?=          | cero o una, similar a {0,1}           |
+
+
+* Gracias
+:PROPERTIES:
+:SLIDE: thank-you-slide segue
+:ASIDE: right
+:ARTICLE: flexbox vleft auto-fadein
+:END:
+
+* Footnotes
+[fn:1] [[https://regex101.com/][Regex Online - Recomendado]]

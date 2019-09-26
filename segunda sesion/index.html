@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<!-- 2019-09-26 jue 18:30 -->
+<meta  charset="utf-8" />
+<meta  htto-equiv="X-UA-Compatible" content="chrome=1" />
+<meta  name="generator" content="Org-mode with org-ioslide" />
+<meta  name="author" content="Albert Castellano Moreno" />
+
+
+<!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
+<!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--This one seems to work all the time, but really small on ipad-->
+<!--<meta name="viewport" content="initial-scale=0.4">-->
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<link rel="stylesheet" media="all" href="theme/css/default.css" />
+<link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css" />
+<link rel="stylesheet" media="all" href="theme/css/small-icon.css" />
+<base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+<script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
+
+   <script src="js/jquery-1.7.1.min.js" type="text/javascript"></script>
+
+<script src="js/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML,local/local" type="text/javascript"></script>
+</head>
+<body style="opacity: 0">
+<slides class="layout-widescreen">
+<slide class="title-slide segue nobackground">
+       <aside class="gdbar"><img src="images/python-logo.png"></aside>
+       <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
+       <hgroup class="auto-fadein">
+         <h1 data-config-title><!-- populated from slide_config.json --></h1>
+         <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
+         <p data-config-presenter><!-- populated from slide_config.json --></p>
+       </hgroup>
+    </slide>
+  
+<slide id="sec-"  >
+<hgroup class="">
+       <h2 class=" "><div id="outline-container-orgffb39d5" class="outline-2">
+<h2 id="orgffb39d5">Contenido 2da Sesión</h2>
+</div>
+</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-">
+<ul>
+<li>Expresiones regulares
+<ul>
+<li>Mecaracteres</li>
+<li>Ejemplos</li>
+</ul></li>
+<li>Archivos</li>
+<li>Ambientes virtuales (virtualenv) y librerias</li>
+<li>Uso basico de numpy</li>
+<li>Uso basico de matplotlib</li>
+</ul>
+
+
+</article>
+
+</slide>
+
+</slide>
+<slide id="sec-" class=" segue dark quote nobackground" style="background-image: url(nil)">
+<aside class="gdbar right bottom"><img src="images/python-logo.png"></aside><hgroup class="">
+       <h2 class=" "><div id="outline-container-org3ebb122" class="outline-2">
+<h2 id="org3ebb122">Expresiones regulares</h2>
+</div>
+</h2>
+       <h3></h3>
+       </hgroup>
+<article class="flexbox vleft auto-fadein" id="text-">
+
+
+</article>
+
+</slide>
+<slide id="sec-"  >
+<hgroup class="">
+       <h2 class=" "><div id="outline-container-orga91affc" class="outline-3">
+<h3 id="orga91affc">Necesidad</h3>
+</div>
+</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-">
+<p>
+Uno de los problemas más comunes en el desarrollo de cualquier programa informático, es el de procesamiento de texto. Tarea trivial para el ser humano, ya que nosotros podemos detectar con facilidad que es un número y que una letra, o cuales son palabras que cumplen con un determinado patrón y cuales no; pero estas mismas tareas no son tan fáciles para una computadora.
+</p>
+
+<p>
+Luego de años de investigacion en el area de ciencias de la computación, se creo un lenguaje poderoso y versatil conocido como <code>expresiones regulares</code>.
+</p>
+
+
+</article>
+
+</slide>
+
+</slide>
+<slide id="sec-"  >
+<hgroup class="">
+       <h2 class=" "><div id="outline-container-org2ed4df9" class="outline-3">
+<h3 id="org2ed4df9">Expresiones regulares</h3>
+</div>
+</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-">
+<p>
+Las <b>expresiones regulares</b>, a menudo llamada también regex, son unas <b>secuencias de caracteres</b> que forma un <b>patrón de búsqueda</b>, las cuales son formalizadas por medio de una <b>sintaxis específica</b>.
+</p>
+
+<p>
+Los patrones se interpretan como un <b>conjunto de instrucciones</b>, que luego se ejecutan sobre un texto de entrada para <b>producir un subconjunto o una versión modificada del texto original</b>.<sup>1</sup>
+</p>
+
+<footer class="source">
+<p class="footpara">1. 
+<a href="https://regex101.com/">Regex Online - Recomendado</a>
+</p>
+</footer>
+</article>
+
+</slide>
+
+
+</slide>
+<slide id="sec-"  >
+<hgroup class="">
+       <h2 class=" "><div id="outline-container-orgc6e58b5" class="outline-3">
+<h3 id="orgc6e58b5">Componentes de expresiones regulares</h3>
+</div>
+</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-">
+<p>
+Las expresiones regulares son un <b>mini lenguaje</b> en sí mismo, por lo que para poder utilizarlas eficientemente primero debemos entender los <b>componentes de su sintaxis</b>; ellos son:
+</p>
+
+<ul>
+<li><b>Literales</b>: Cualquier caracter que se encuentra a sí mismo, a menos que se trate de un <code>metacaracter</code> con significado especial.</li>
+<li><b>Clases de caracteres</b>: Se pueden especificar clases de caracteres encerrando una lista de caracteres entre corchetes [], la que que encontrará cualquiera de los caracteres de la lista. Si el primer símbolo después del "[" es "^", la clase encuentra cualquier caracter que no está en la lista.</li>
+</ul>
+
+
+</article>
+
+</slide>
+
+</slide>
+<slide id="sec-"  >
+<hgroup class="">
+       <h2 class=" "><div id="outline-container-orgbe90c02" class="outline-3">
+<h3 id="orgbe90c02">Componentes de expresiones regulares</h3>
+</div>
+</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-">
+<ul>
+<li><b>Secuencias de escape</b>: Finales de línea, tabs, barras diagonales, etc. Las principales secuencias de escape que podemos encontrar, son:</li>
+</ul>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">Secuencia de escape</th>
+<th scope="col" class="left">Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left"><code>\n</code></td>
+<td class="left">Nueva línea (new line)</td>
+</tr>
+
+<tr>
+<td class="left"><code>\t</code></td>
+<td class="left">Tabulación</td>
+</tr>
+
+<tr>
+<td class="left"><code>\\</code></td>
+<td class="left">Barra diagonal inversa</td>
+</tr>
+
+<tr>
+<td class="left"><code>\v</code></td>
+<td class="left">Tabulacion vertical</td>
+</tr>
+</tbody>
+</table>
+
+<ul>
+<li><b>Metacaracteres</b>: Caracteres especiales que modifican enormemente los patrones creados.</li>
+</ul>
+
+
+</article>
+
+</slide>
+
+</slide>
+
+</slide>
+<slide id="sec-" class=" segue dark quote nobackground" style="background-image: url(nil)">
+<aside class="gdbar right bottom"><img src="images/python-logo.png"></aside><hgroup class="">
+       <h2 class=" "><div id="outline-container-orgc4677a6" class="outline-2">
+<h2 id="orgc4677a6">Metacaracteres</h2>
+</div>
+</h2>
+       <h3></h3>
+       </hgroup>
+<article class="flexbox vleft auto-fadein" id="text-">
+
+
+</article>
+
+</slide>
+<slide id="sec-"  >
+<hgroup class="">
+       <h2 class=" "><div id="outline-container-org89e1489" class="outline-3">
+<h3 id="org89e1489">Metacaracteres - delimitadores de busqueda</h3>
+</div>
+</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">Metacaracter</th>
+<th scope="col" class="left">Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left"><code>^</code></td>
+<td class="left">inicio de línea</td>
+</tr>
+
+<tr>
+<td class="left"><code>$</code></td>
+<td class="left">fin de línea</td>
+</tr>
+
+<tr>
+<td class="left"><code>\A</code></td>
+<td class="left">inicio de texto</td>
+</tr>
+
+<tr>
+<td class="left"><code>\Z</code></td>
+<td class="left">fin de texto</td>
+</tr>
+
+<tr>
+<td class="left"><code>.</code></td>
+<td class="left">cualquier caracter en la línea</td>
+</tr>
+
+<tr>
+<td class="left"><code>\b</code></td>
+<td class="left">encuentra límite de palabra</td>
+</tr>
+
+<tr>
+<td class="left"><code>\B</code></td>
+<td class="left">encuentra distinto a límite de palabra</td>
+</tr>
+</tbody>
+</table>
+
+
+</article>
+
+</slide>
+
+</slide>
+<slide id="sec-"  >
+<hgroup class="">
+       <h2 class=" "><div id="outline-container-orgb98026c" class="outline-3">
+<h3 id="orgb98026c">Metacaracteres - clases predefinidas</h3>
+</div>
+</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">Metacaracter</th>
+<th scope="col" class="left">Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left"><code>\w</code></td>
+<td class="left">un caracter alfanumérico (incluye "_")</td>
+</tr>
+
+<tr>
+<td class="left"><code>\W</code></td>
+<td class="left">un caracter no alfanumérico</td>
+</tr>
+
+<tr>
+<td class="left"><code>\d</code></td>
+<td class="left">un caracter numérico</td>
+</tr>
+
+<tr>
+<td class="left"><code>\D</code></td>
+<td class="left">un caracter no numérico</td>
+</tr>
+
+<tr>
+<td class="left"><code>\s</code></td>
+<td class="left">cualquier espacio (lo mismo que [ \t\n\r\f])</td>
+</tr>
+
+<tr>
+<td class="left"><code>\S</code></td>
+<td class="left">un no espacio</td>
+</tr>
+</tbody>
+</table>
+
+
+</article>
+
+</slide>
+
+</slide>
+<slide id="sec-"  >
+<hgroup class="">
+       <h2 class=" "><div id="outline-container-orgcb1a37d" class="outline-3">
+<h3 id="orgcb1a37d">Metacaracteres - iteradores (Numero de ocurrencias)</h3>
+</div>
+</h2>
+       <h3></h3>
+       </hgroup>
+<article class="" id="text-">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">Metacaracter</th>
+<th scope="col" class="left">Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left"><code>{n}</code></td>
+<td class="left">exactamente n veces</td>
+</tr>
+
+<tr>
+<td class="left"><code>{n,}</code></td>
+<td class="left">por lo menos n veces</td>
+</tr>
+
+<tr>
+<td class="left"><code>{n,m}</code></td>
+<td class="left">por lo menos n pero no más de m veces</td>
+</tr>
+
+<tr>
+<td class="left"><code>*</code></td>
+<td class="left">cero o más, similar a {0,}</td>
+</tr>
+
+<tr>
+<td class="left"><code>+</code></td>
+<td class="left">una o más, similar a {1,}</td>
+</tr>
+
+<tr>
+<td class="left"><code>?</code></td>
+<td class="left">cero o una, similar a {0,1}</td>
+</tr>
+</tbody>
+</table>
+
+
+</article>
+
+</slide>
+
+</slide>
+
+
+</slide>
+<slide id="sec-" class=" thank-you-slide segue nobackground" style="background-image: url(nil)">
+<aside class="gdbar right"><img src="images/python-logo.png"></aside><article class="flexbox vleft auto-fadein" id="text-">
+<h2>
+  <p>Gracias</p>
+</h2>
+<br>
+<p class="auto-fadein" data-config-contact>
+</p>
+</article>
+
+</slide>
+<slide class="backdrop"></slide>
+</slides> 
+<!--[if IE]>
+  <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+  <script>CFInstall.check({mode: 'overlay'});</script>
+<![endif]-->
+</body> 
+
+</html>
