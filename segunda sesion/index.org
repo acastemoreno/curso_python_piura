@@ -45,12 +45,18 @@ Las *expresiones regulares*, a menudo llamada también regex, son unas *secuenci
 
 Los patrones se interpretan como un *conjunto de instrucciones*, que luego se ejecutan sobre un texto de entrada para *producir un subconjunto o una versión modificada del texto original*.[fn:1]
 
+#+ATTR_HTML: :class note
+#+BEGIN_QUOTE
+Enlace[fn:2]
+Enlace[fn:3]
+Enlace[fn:4]
+#+END_QUOTE
 
 ** Componentes de expresiones regulares
 Las expresiones regulares son un *mini lenguaje* en sí mismo, por lo que para poder utilizarlas eficientemente primero debemos entender los *componentes de su sintaxis*; ellos son:
 
 - *Literales*: Cualquier caracter que se encuentra a sí mismo, a menos que se trate de un =metacaracter= con significado especial.
-- *Clases de caracteres*: Se pueden especificar clases de caracteres encerrando una lista de caracteres entre corchetes [], la que que encontrará cualquiera de los caracteres de la lista. Si el primer símbolo después del "[" es "^", la clase encuentra cualquier caracter que no está en la lista.
+- *Clases de caracteres*: Se pueden especificar clases de caracteres encerrando una lista de caracteres entre corchetes [], la que encontrará cualquiera de los caracteres de la lista. Si el primer símbolo después del "[" es "^", la clase encuentra cualquier caracter que no está en la lista.
 
 ** Componentes de expresiones regulares
 - *Secuencias de escape*: Finales de línea, tabs, barras diagonales, etc. Las principales secuencias de escape que podemos encontrar, son:
@@ -102,6 +108,137 @@ Las expresiones regulares son un *mini lenguaje* en sí mismo, por lo que para p
 | =+=          | una o más, similar a {1,}             |
 | =?=          | cero o una, similar a {0,1}           |
 
+** Metacaracteres - alternativas
+Se puede especificar una serie de alternativas para una plantilla usando "|" para separarlas.
+
+La primera alternativa que coincide plenamente con la expresión analizada es la que se selecciona.
+
+#+BEGIN_SRC regex
+patrones:
+   foo|foot
+   foot|b
+string:
+    barefoot
+#+END_SRC
+
+** Python y Regex
+
+#+BEGIN_SRC python
+import re
+pattern = r"foo|foot"
+reobject = re.search(pattern)
+result = reobject.match("barefoot")
+#or
+result = re.search(r"foo|foot", "barefoot")
+#Primera forma más eficiente cuando queremos usar la expresion regular varias
+#veces en el programa.
+#+END_SRC
+
+** Metodos =re=: Buscando coincidencias
+- =match()=: El cual determinada si la regex tiene coincidencias en el comienzo del texto.
+- =search()=: El cual escanea todo el texto buscando cualquier ubicación donde haya una coincidencia.
+- =findall()=: El cual encuentra todos los subtextos donde haya una coincidencia y nos devuelve estas coincidencias como una lista.
+- =finditer()=: El cual es similar al anterior pero en lugar de devolvernos una lista nos devuelve un iterador.
+
+
+** Ejemplos
+#+BEGIN_SRC python
+# texto de entrada
+patron = re.compile(r"foo")
+texto = """ bar foo bar
+foo barbarfoo
+foofoo foo bar"""
+print(patron.match(texto))
+
+s = patron.search(texto)
+s
+
+##Continúa
+#+END_SRC
+** Ejemplos
+#+BEGIN_SRC python
+fa = patron.findall(texto)
+fa
+
+fi = patron.finditer(texto)
+fi
+
+next(fi)
+
+next(fi)
+#+END_SRC
+
+** Metodos de las coincidencias
+  :PROPERTIES:
+  :ARTICLE:  smaller
+  :END:
+Cuando hay coincidencias, Python nos devuelve un *Objeto de Coincidencia* (salvo por el método =findall()= que devuelve una lista)
+
+Este *Objeto de coincidencia también tiene sus *propios métodos* que nos proporcionan *información adicional* sobre la coincidencia; éstos métodos son:
+- =group()=: El cual devuelve el texto que coincide con la expresion regular.
+- =start()=: El cual devuelve la posición inicial de la coincidencia.
+- =end()=: El cual devuelve la posición final de la coincidencia.
+- =span()=: El cual devuelve una tupla con la posición inicial y final de la coincidencia.
+
+#+BEGIN_SRC python
+s.group(), s.start(), s.end(), s.span()
+('foo', 5, 8, (5, 8))
+#+END_SRC
+
+** Metodos =re=: Modificando el texto de entrada
+- =split()=: El cual divide el texto en una lista, realizando las divisiones del texto en cada lugar donde se cumple con la expresion regular.
+- =sub()=: El cual encuentra todos los subtextos donde existe una coincidencia con la expresion regular y luego los reemplaza con un nuevo texto.
+- =subn()=: El cual es similar al anterior pero además de devolver el nuevo texto, también devuelve el numero de reemplazos que realizó.
+
+** Ejemplos
+
+# texto de entrada
+#+BEGIN_SRC python
+becquer = """Podrá nublarse el sol eternamente; 
+Podrá secarse en un instante el mar; 
+Podrá romperse el eje de la tierra 
+como un débil cristal. 
+¡todo sucederá! Podrá la muerte 
+cubrirme con su fúnebre crespón; 
+Pero jamás en mí podrá apagarse 
+la llama de tu amor."""
+patron = re.compile(r"\W+")
+
+palabras = patron.split(becquer)
+palabras[:10]  # 10 primeras palabras
+
+patron.split(becquer, 5)  # 5: Tope de divisiones
+#+END_SRC
+
+** Ejemplos
+#+BEGIN_SRC python
+# Cambiando "Podrá" o "podra" por "Puede"
+podra = re.compile(r"(P|p)odrá")
+puede = podra.sub("Puede", becquer)
+print(puede)
+
+puede = podra.sub("Puede", becquer, 2)
+print(puede)
+#+END_SRC
+
+** Nombrando los grupos
+#+BEGIN_SRC python
+# Accediendo a los grupos por sus indices
+patron = re.compile(r"(\w+) (\w+)")
+s = patron.search("Raul Lopez")
+
+s.group(1)
+
+s.group(2)
+
+# Accediendo a los grupos por nombres
+patron = re.compile(r"(?P<nombre>\w+) (?P<apellido>\w+)")
+s = patron.search("Raul Lopez")
+
+s.group("nombre")
+
+s.group("apellido")
+#+END_SRC
 
 * Gracias
 :PROPERTIES:
@@ -112,3 +249,6 @@ Las expresiones regulares son un *mini lenguaje* en sí mismo, por lo que para p
 
 * Footnotes
 [fn:1] [[https://regex101.com/][Regex Online - Recomendado]]
+[fn:2] [[https://docs.python.org/3/library/re.html][Regular expression operations - Python Documentation]]
+[fn:3] [[https://medium.com/@jmz12/expresiones-regulares-215af64acab1][Holy or Evil: Expresiones Regulares]]
+[fn:4] [[https://platzi.com/blog/expresiones-regulares-python/][Guía de expresiones regulares en Python - Platzi]]
