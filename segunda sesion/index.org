@@ -43,10 +43,11 @@ Luego de años de investigacion en el area de ciencias de la computación, se cr
 ** Expresiones regulares
 Las *expresiones regulares*, a menudo llamada también regex, son unas *secuencias de caracteres* que forma un *patrón de búsqueda*, las cuales son formalizadas por medio de una *sintaxis específica*.
 
-Los patrones se interpretan como un *conjunto de instrucciones*, que luego se ejecutan sobre un texto de entrada para *producir un subconjunto o una versión modificada del texto original*.[fn:1]
+Los patrones se interpretan como un *conjunto de instrucciones*, que luego se ejecutan sobre un texto de entrada para *producir un subconjunto o una versión modificada del texto original*.
 
 #+ATTR_HTML: :class note
 #+BEGIN_QUOTE
+Enlace[fn:1]
 Enlace[fn:2]
 Enlace[fn:3]
 Enlace[fn:4]
@@ -240,6 +241,51 @@ s.group("nombre")
 s.group("apellido")
 #+END_SRC
 
+* Virtualenv
+  :PROPERTIES:
+  :SLIDE:    segue dark quote
+  :ASIDE:    right bottom
+  :ARTICLE:  flexbox vleft auto-fadein
+  :END:
+
+** Virtualenv
+=Virtualenv= es una herramienta usada para crear un ambiente Python aislado. Este ambiente tiene su propio directorio de instalación que no comparte librerías con otros ambientes virtualenv (y opcionalmente tampoco accede las librerías globales instaladas).
+
+#+BEGIN_SRC shell
+$ pip3 install virtualenv
+
+#Nos ubicamos en la carpeta donde queremos tener nuestro ambiente, luego:
+$ virtualenv env --python=python3
+$ cd env
+#+END_SRC
+
+#+ATTR_HTML: :class note
+#+BEGIN_QUOTE
+Enlace[fn:5]
+#+END_QUOTE
+
+** Estructura de la carpeta =env=
+
+#+BEGIN_SRC shell
+env/
+  bin/
+  include/
+  lib/
+    pythonx.x/
+    site-packages/
+#+END_SRC
+- =bin/=: Contiene los los ejecutables necesarios para interactuar con el entorno virtual
+- =include=: Contiene algunos archivos C (cuya extensión es *.h) necesarios para compilar algunas librerías de Python.
+- =lib/=: Contiene una copia de la instalación de Python y un directorio =site-packages/= donde se almacenan los paquetes python instalados en el entorno virtual.
+
+** Uso de ambiente virtual
+#estando ubicados en la carpta creada por el comando *virtualenv env --python=python3*
+$ source bin/activate
+(env)$
+(env)$ pip install Django
+(env)$ deactivate
+$
+
 * Gracias
 :PROPERTIES:
 :SLIDE: thank-you-slide segue
@@ -252,3 +298,4 @@ s.group("apellido")
 [fn:2] [[https://docs.python.org/3/library/re.html][Regular expression operations - Python Documentation]]
 [fn:3] [[https://medium.com/@jmz12/expresiones-regulares-215af64acab1][Holy or Evil: Expresiones Regulares]]
 [fn:4] [[https://platzi.com/blog/expresiones-regulares-python/][Guía de expresiones regulares en Python - Platzi]]
+[fn:5] [[https://virtualenv.pypa.io/en/latest/][Documentacion Virtualenv]]
