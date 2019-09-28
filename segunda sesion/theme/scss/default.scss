@@ -1,6 +1,7 @@
 @import "base";
 @import "compass/css3/columns";
 @import "compass/css3/user-interface";
+@import "custom";
 
 @mixin highlight-color($color: $brand-yellow) {
     -webkit-tap-highlight-color: $color;

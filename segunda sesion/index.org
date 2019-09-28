@@ -21,12 +21,10 @@
 
 * Contenido 2da Sesión
 - Expresiones regulares
-    - Mecaracteres
+    - Metacaracteres
     - Ejemplos
-- Archivos
 - Ambientes virtuales (virtualenv) y librerias
-- Uso basico de numpy
-- Uso basico de matplotlib
+- Matplotlib
 
 * Expresiones regulares
   :PROPERTIES:
@@ -289,6 +287,114 @@ $ source bin/activate
 $
 #+END_SRC
 
+* Matplotlib
+  :PROPERTIES:
+  :SLIDE:    segue dark quote
+  :ASIDE:    right bottom
+  :ARTICLE:  flexbox vleft auto-fadein
+  :END:
+
+** Pasos previos
+#+BEGIN_SRC shell
+$ pip install matplotlib numpy --user 
+#+END_SRC
+
+#+BEGIN_SRC python
+import matplotlib.pyplot as plt
+#+END_SRC
+
+** 
+:PROPERTIES:
+:FILL:     images/anatomy-matplotlib.png
+:TITLE:    white
+:SLIDE:    white
+:END:
+
+** Plot, Axis
+#+BEGIN_SRC python
+#Plotear con el eje x con los valores por defecto [0,1,2,3]
+plt.plot([1, 2, 3, 4])
+plt.ylabel('some numbers')
+plt.show()
+
+#Plotear con valores x,y
+plt.plot([1, 2, 3, 4], [1, 4, 9, 16])
+plt.show()
+#+END_SRC
+
+#+ATTR_HTML: :class note
+#+BEGIN_QUOTE
+Enlace[fn:6]
+Enlace[fn:7]
+#+END_QUOTE
+
+** Formato basico, numpy, multiples series
+#+BEGIN_SRC python
+# Formado de linea
+plt.plot([1, 2, 3, 4], [1, 4, 9, 16], 'ro')
+plt.plot([1, 2, 3, 4], [1, 4, 9, 16], color='red', marker='o')
+plt.axis([0, 6, 0, 20])
+plt.show()
+
+import numpy as np
+#tiempo de muestreo uniforme a intervalos de 200 ms de 0 a 5
+t = np.arange(0, 5, 0.2)
+#guiones rojos, cuadrados azules y triángulos verdes
+plt.plot(t, t, 'r--', t, t**2, 'bs', t, t**3, 'g^')
+plt.show()
+#+END_SRC
+
+#+ATTR_HTML: :class note
+#+BEGIN_QUOTE
+Enlace[fn:8]
+Enlace[fn:9]
+Enlace[fn:10]
+#+END_QUOTE
+
+** Mapas y Graficos de dispersion
+#+BEGIN_SRC python
+#Data randon con grafico de dispersion
+data = {'a': np.arange(50),
+        'c': np.random.randint(0, 50, 50),
+        'd': np.random.randn(50)}
+data['b'] = data['a'] + 10 * np.random.randn(50)
+data['d'] = np.abs(data['d']) * 100
+plt.scatter('a', 'b', c='c', s='d', data=data) #a es x, b es y, c es color, d es la escala
+plt.xlabel('entry a')
+plt.ylabel('entry b')
+plt.show()
+#+END_SRC
+
+#+ATTR_HTML: :class note
+#+BEGIN_QUOTE
+Enlace[fn:11]
+Enlace[fn:12]
+Enlace[fn:13]
+#+END_QUOTE
+
+** Multiples figuras y ejes
+#+BEGIN_SRC python
+def f(t):
+    return np.exp(-t) * np.cos(2*np.pi*t)
+
+t1 = np.arange(0, 5, 0.1)
+t2 = np.arange(0, 5, 0.02)
+
+plt.figure()
+plt.subplot(211)
+plt.plot(t1, f(t1), 'bo', t2, f(t2), 'k')
+
+plt.subplot(212)
+plt.plot(t2, np.cos(2*np.pi*t2), 'r--')
+plt.show()
+#+END_SRC
+
+#+ATTR_HTML: :class note
+#+BEGIN_QUOTE
+Enlace[fn:15]
+Enlace[fn:14]
+#+END_QUOTE
+
 * Gracias
 :PROPERTIES:
 :SLIDE: thank-you-slide segue
@@ -302,3 +408,13 @@ $
 [fn:3] [[https://medium.com/@jmz12/expresiones-regulares-215af64acab1][Holy or Evil: Expresiones Regulares]]
 [fn:4] [[https://platzi.com/blog/expresiones-regulares-python/][Guía de expresiones regulares en Python - Platzi]]
 [fn:5] [[https://virtualenv.pypa.io/en/latest/][Documentación Virtualenv]]
+[fn:6] [[https://matplotlib.org/api/_as_gen/matplotlib.pyplot.plot.html#matplotlib.pyplot.plot][Matploplib metodo plot]]
+[fn:7] [[https://matplotlib.org/api/_as_gen/matplotlib.pyplot.axis.html#matplotlib.pyplot.axis][Matploplib metodo axis]]
+[fn:8] [[https://matplotlib.org/api/_as_gen/matplotlib.pyplot.scatter.html#matplotlib.pyplot.scatter][Matploplib metodo scatter]]
+[fn:9] [[https://matplotlib.org/api/_as_gen/matplotlib.pyplot.xlabel.html#matplotlib.pyplot.xlabel][Matploplib metodo xlabel]]
+[fn:10] [[https://matplotlib.org/api/_as_gen/matplotlib.pyplot.ylabel.html#matplotlib.pyplot.ylabel][Matploplib metodo ylabel]]
+[fn:11] [[https://docs.scipy.org/doc/numpy/reference/generated/numpy.arange.html#numpy.arange][Numpy arange]]
+[fn:12] [[https://docs.scipy.org/doc/numpy/reference/random/generated/numpy.random.mtrand.RandomState.randint.html#numpy.random.mtrand.RandomState.randint][Numpy random integer]]
+[fn:13] [[https://docs.scipy.org/doc/numpy/reference/random/generated/numpy.random.mtrand.RandomState.randn.html#numpy.random.mtrand.RandomState.randn][Numpy random distibucion standard]]
+[fn:14] [[https://matplotlib.org/api/_as_gen/matplotlib.pyplot.subplot.html#matplotlib.pyplot.subplot][Matploplib subplot]]
+[fn:15] [[https://matplotlib.org/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure][Matploplib figure]]

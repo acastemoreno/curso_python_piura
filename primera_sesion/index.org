@@ -30,10 +30,9 @@
 - Programación estructurada
   - Estructuras de control
   - Funciones
+- Programación orientada a objetos
 * Contenido 2da Sesión
 - Expresiones regulares
-- Archivos
-- Programación orientada a objetos.
 - Ambientes virtuales (virtualenv) y librerias
 - Uso basico de numpy
 - Uso basico de matplotlib
