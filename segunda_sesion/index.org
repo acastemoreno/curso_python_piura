@@ -125,7 +125,7 @@ string:
 #+BEGIN_SRC python
 import re
 pattern = r"foo|foot"
-reobject = re.search(pattern)
+reobject = re.compile(pattern)
 result = reobject.match("barefoot")
 #or
 result = re.search(r"foo|foot", "barefoot")
