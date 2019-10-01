@@ -395,6 +395,43 @@ Enlace[fn:15]
 Enlace[fn:14]
 #+END_QUOTE
 
+** Ejemplo WebScraping, regex y matplotlib
+  :PROPERTIES:
+  :ARTICLE:  smaller
+  :END:
+#+BEGIN_SRC shell
+$ pip3 install beautifulsoup4 --user
+#+END_SRC
+
+#+BEGIN_SRC python
+# fetch data de url
+import requests
+r = requests.get('https://bit.ly/2ntSh2C')
+c = r.content #Extraer el contenido
+from bs4 import BeautifulSoup #Libreria para Scraping html y xml
+soup = BeautifulSoup(c)
+
+#Buscando el elemento de la pagina web que nos interesa
+main_content = soup.find('div', attrs = {'class': 'entry-content'})
+
+#Extraemos texto que nos interesa
+content = main_content.find('ul').text
+
+# Creando regex para nombre de presidente
+name_pattern = re.compile(r"^([A-Z]{1}.+?)(?:,)", flags = re.M)
+#.+? es todo lo que sea posible hasta el siguiente match, re.M es multilinea
+names = name_pattern.findall(content)
+#+END_SRC
+
+* Ejemplo WebScraping, regex y matplotlib
+#+BEGIN_SRC python
+# Regex para escuela y salario
+school_pattern = re.compile(r'(?:,|,\s)([A-Z]{1}.*?)(?:\s\(|:|,)')
+schools = school_pattern.findall(content)
+salary_pattern = re.compile(r'\$.+')
+salaries = salary_pattern.findall(content)
+salaries = [int(''.join(s[1:].split(','))) for s in salaries]
+#+END_SRC
 * Gracias
 :PROPERTIES:
 :SLIDE: thank-you-slide segue
